@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext} from 'react';
+import styled from '@emotion/styled'
+import {ThemeContext} from './themeContext'
+import ThemeToggle from './components/ThemeToggle'
 
-function App() {
+const App = () => {
+  const {theme} = useContext(ThemeContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <AppWrapper className={`${theme}-theme `}>
+      <header>
+        <ThemeToggle/>
       </header>
-    </div>
+    </AppWrapper>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+  background-color: #e1e1e1;
+  transition: background-color .2s;
+
+  &.dark-theme { background-color: #1e1e1e; }
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 15px;
+  }
+`
