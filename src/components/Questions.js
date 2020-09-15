@@ -3,16 +3,32 @@ import {Context} from '../context'
 import styled from '@emotion/styled'
 
 const Questions = () => {
-  const {theme, handleGoal} = useContext(Context)
+  const {theme, handleGoal, step, handleMuscle, beginWorkout} = useContext(Context)
 
   return (
     <QuestionsWrapper className={`${theme}-theme `}>
-      <div className='whats-your-goal'>
+      <div className={`whats-your-goal ${step !== 1 && 'hide'}`}>
         <h2 className='heading center-text'>What's your goal?</h2>
         <div className='question-flex-container'>
           <button onClick={() => handleGoal('muscle')}>Build Muscle</button>
           <button onClick={() => handleGoal('strength')}>Gain Strength</button>
         </div>
+      </div>
+      <div className={`what-muscles ${step !== 2 && 'hide'}`}>
+        <h2 className='heading center-text'>What muscles?</h2>
+        <div className='question-flex-container'>
+          <button onClick={() => handleMuscle('biceps')}>Biceps</button>
+          <button onClick={() => handleMuscle('triceps')}>Triceps</button>
+          <button onClick={() => handleMuscle('shoulders')}>Shoulders</button>
+          <button onClick={() => handleMuscle('chest')}>Chest</button>
+          <button onClick={() => handleMuscle('back')}>Back</button>
+          <button onClick={() => handleMuscle('legs')}>Legs</button>
+          <button onClick={() => handleMuscle('abs')}>Abs</button>
+          <button onClick={beginWorkout}>Begin workout!</button>
+        </div>
+      </div>
+      <div className={`${step !== 3 && 'hide'}`}>
+        <h2>Here's your workout!</h2>
       </div>
     </QuestionsWrapper>
   )
