@@ -4,10 +4,10 @@ import darkTheme from '../images/dark-theme.svg'
 import lightTheme from '../images/light-theme.svg'
 import styled from '@emotion/styled'
 
-function Button(props) {
+function ThemeToggle(props) {
     const {theme, toggleTheme} = useContext(ThemeContext)
     return (
-        <ThemeToggler
+        <ToggleIcon
             onClick={toggleTheme}
             src={theme === 'light' ? darkTheme : lightTheme}
             alt="toggle theme"
@@ -15,8 +15,8 @@ function Button(props) {
     )
 }
 
-export default Button
+export default ThemeToggle
 
-const ThemeToggler = styled.img`
+const ToggleIcon = styled.img`
     width: 50px;
 `
