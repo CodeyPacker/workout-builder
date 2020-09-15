@@ -19,6 +19,7 @@ function ContextProvider(props) {
     }
 
     function handleMuscle(selection) {
+        // add the muscle names to the array
         !muscles.includes(selection)
             ? setMuscles(prevMuscles => prevMuscles.concat(selection))
             : setMuscles(prevMuscles => prevMuscles.filter(e => e !== selection))

@@ -1,6 +1,8 @@
 import React, {useContext} from "react"
 import {Context} from '../context'
 import styled from '@emotion/styled'
+import heartLight from '../images/heart-light.svg'
+import heartDark from '../images/heart-dark.svg'
 
 const Questions = () => {
   const {theme, handleGoal, step, handleMuscle, beginWorkout} = useContext(Context)
@@ -16,17 +18,26 @@ const Questions = () => {
       </div>
       <div className={`what-muscles ${step !== 2 && 'hide'}`}>
         <h2 className='heading center-text'>What muscles?</h2>
-        <div className='question-flex-container'>
-          <button onClick={() => handleMuscle('biceps')}>Biceps</button>
-          <button onClick={() => handleMuscle('triceps')}>Triceps</button>
-          <button onClick={() => handleMuscle('shoulders')}>Shoulders</button>
-          <button onClick={() => handleMuscle('chest')}>Chest</button>
-          <button onClick={() => handleMuscle('back')}>Back</button>
-          <button onClick={() => handleMuscle('legs')}>Legs</button>
-          <button onClick={() => handleMuscle('abs')}>Abs</button>
-          <div className="begin-workout">
-            <button onClick={beginWorkout}>Begin workout!</button>
-          </div>
+        <form className='question-flex-container'>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
+          <label htmlFor="biceps">Biceps</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
+          <label htmlFor="triceps">Triceps</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('shoulders')} id="shoulders"/>
+          <label htmlFor="shoulders">Shoulders</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('chest')} id="chest"/>
+          <label htmlFor="chest">Chest</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
+          <label htmlFor="back">Back</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('legs')} id="legs"/>
+          <label htmlFor="legs">Legs</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('abs')} id="abs"/>
+          <label htmlFor="abs">Abs</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('cardio')} id="cardio"/>
+          <label htmlFor="cardio">Cardio</label>
+        </form>
+        <div className="begin-workout">
+          <button onClick={beginWorkout}>Begin workout!</button>
         </div>
       </div>
       <div className={`${step !== 3 && 'hide'}`}>
@@ -39,17 +50,6 @@ const Questions = () => {
 export default Questions
 
 const QuestionsWrapper = styled.div`
-  button {
-    padding: 15px 20px;
-    margin: 15px;
-    background-color: white;
-    border: 0;
-    font-weight: 600;
-    border-bottom: 3px solid #631BEE;
-    cursor: pointer;
-    min-width: 250px;
-  }
-
   .question-flex-container {
     max-width: 700px;
     margin: 0 auto;
@@ -64,13 +64,58 @@ const QuestionsWrapper = styled.div`
     justify-content: center;
   }
 
+  .muscle-checkbox { appearance: none; }
+
+  button,
+  .muscle-checkbox + label {
+    padding: 15px 20px;
+    margin: 15px;
+    background-color: #41D3A2;
+    color: #1B0C69;
+    border: 0;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 250px;
+    text-align: center;
+  }
+
+  ${'' /* Initialize height at 0 to create a transition effect */}
+  .muscle-checkbox + label {
+    &:after {
+      content: '';
+      height: 0;
+      width: 0;
+      transition: width .2s, height .2s;
+    }
+  }
+
+  .muscle-checkbox:checked + label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      transition: width .2s, height .2s;
+      content: url('${heartLight}');
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
+    }
+  }
+
   &.dark-theme {
     .heading { color: #f4f4f4; }
 
-    button {
+    button,
+    .muscle-checkbox + label {
       background-color: #1e1e1e;
       color: #f4f4f4;
       border-bottom: 3px solid #BB86FC;
     }
+
+  .muscle-checkbox:checked + label {
+    &:after { content: url('${heartDark}'); }
   }
+}
 `
