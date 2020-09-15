@@ -1,17 +1,17 @@
 import React, {useContext} from "react"
-import {ThemeContext} from '../themeContext'
+import {Context} from '../context'
 import styled from '@emotion/styled'
 
 const Questions = () => {
-  const {theme} = useContext(ThemeContext)
+  const {theme, handleGoal} = useContext(Context)
 
   return (
     <QuestionsWrapper className={`${theme}-theme `}>
       <div className='whats-your-goal'>
         <h2 className='heading center-text'>What's your goal?</h2>
         <div className='question-flex-container'>
-          <button>Build Muscle</button>
-          <button>Gain Strength</button>
+          <button onClick={() => handleGoal('muscle')}>Build Muscle</button>
+          <button onClick={() => handleGoal('strength')}>Gain Strength</button>
         </div>
       </div>
     </QuestionsWrapper>

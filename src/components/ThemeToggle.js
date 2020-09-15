@@ -1,11 +1,11 @@
 import React, {useContext} from "react"
-import {ThemeContext} from '../themeContext'
+import {Context} from '../context'
 import darkTheme from '../images/dark-theme.svg'
 import lightTheme from '../images/light-theme.svg'
 import styled from '@emotion/styled'
 
 function ThemeToggle() {
-    const {theme, toggleTheme} = useContext(ThemeContext)
+    const {theme, toggleTheme} = useContext(Context)
     return (
         <ToggleIcon
             onClick={toggleTheme}

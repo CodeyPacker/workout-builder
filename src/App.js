@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import styled from '@emotion/styled'
-import {ThemeContext} from './themeContext'
+import {Context} from './context'
 import './styles/App.css';
 import ThemeToggle from './components/ThemeToggle'
 import Questions from './components/Questions'
 
 const App = () => {
-  const {theme} = useContext(ThemeContext)
+  const {theme} = useContext(Context)
 
   return (
     <AppWrapper className={`app ${theme}-theme `}>

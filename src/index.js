@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {ThemeContextProvider} from "./themeContext"
+import {ContextProvider} from "./context"
 
 ReactDOM.render(
-    <ThemeContextProvider>
+    <ContextProvider>
       <App />
-    </ThemeContextProvider>,
+    </ContextProvider>,
     document.getElementById("root")
 )
 
