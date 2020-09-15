@@ -27,6 +27,7 @@ function ContextProvider(props) {
     const beginWorkout = () => {
         setWorkoutStatus(prev => true)
         setStep(prevStep => prevStep += 1)
+        console.table(muscles);
     }
 
     console.log(workoutInProgress);

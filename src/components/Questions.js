@@ -24,7 +24,9 @@ const Questions = () => {
           <button onClick={() => handleMuscle('back')}>Back</button>
           <button onClick={() => handleMuscle('legs')}>Legs</button>
           <button onClick={() => handleMuscle('abs')}>Abs</button>
-          <button onClick={beginWorkout}>Begin workout!</button>
+          <div className="begin-workout">
+            <button onClick={beginWorkout}>Begin workout!</button>
+          </div>
         </div>
       </div>
       <div className={`${step !== 3 && 'hide'}`}>
@@ -54,6 +56,12 @@ const QuestionsWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .begin-workout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   &.dark-theme {
