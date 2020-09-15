@@ -1,16 +1,19 @@
 import React, {useContext} from 'react';
 import styled from '@emotion/styled'
 import {ThemeContext} from './themeContext'
+import './styles/App.css';
 import ThemeToggle from './components/ThemeToggle'
+import Questions from './components/Questions'
 
 const App = () => {
   const {theme} = useContext(ThemeContext)
 
   return (
-    <AppWrapper className={`${theme}-theme `}>
+    <AppWrapper className={`app ${theme}-theme `}>
       <header>
         <ThemeToggle/>
       </header>
+      <Questions/>
     </AppWrapper>
   );
 }
@@ -19,14 +22,23 @@ export default App;
 
 const AppWrapper = styled.div`
   min-height: 100vh;
-  background-color: #e1e1e1;
+  background-color: #f4f4f4;
   transition: background-color .2s;
-
-  &.dark-theme { background-color: #1e1e1e; }
+  padding: 15px;
 
   header {
     display: flex;
     justify-content: flex-end;
-    padding: 20px 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #121212;
+    padding-bottom: 15px;
+  }
+
+  &.dark-theme {
+    background-color: #121212;
+
+    header {
+      border-bottom: 2px solid #f4f4f4;
+    }
   }
 `

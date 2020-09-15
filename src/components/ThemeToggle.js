@@ -4,7 +4,7 @@ import darkTheme from '../images/dark-theme.svg'
 import lightTheme from '../images/light-theme.svg'
 import styled from '@emotion/styled'
 
-function ThemeToggle(props) {
+function ThemeToggle() {
     const {theme, toggleTheme} = useContext(ThemeContext)
     return (
         <ToggleIcon
@@ -18,5 +18,5 @@ function ThemeToggle(props) {
 export default ThemeToggle
 
 const ToggleIcon = styled.img`
-    width: 50px;
+    width: 40px;
 `
