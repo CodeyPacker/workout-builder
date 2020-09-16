@@ -5,18 +5,20 @@ import heartLight from '../images/heart-light.svg'
 import heartDark from '../images/heart-dark.svg'
 
 const Questions = () => {
-  const {theme, handleGoal, step, handleMuscle, beginWorkout} = useContext(Context)
+  const {theme, handleGoal, step, handleMuscle, submitMuscles, handleEquipment, beginWorkout} = useContext(Context)
 
   return (
     <QuestionsWrapper className={`${theme}-theme `}>
-      <div className={`whats-your-goal ${step !== 1 && 'hide'}`}>
+      <div className={`whats-your-goal ${step !== 'choose-goal' && 'hide'}`}>
         <h2 className='heading center-text'>What's your goal?</h2>
         <div className='question-flex-container'>
           <button onClick={() => handleGoal('muscle')}>Build Muscle</button>
-          <button onClick={() => handleGoal('strength')}>Gain Strength</button>
+          <button onClick={() => handleGoal('strength')}>Build Strength</button>
+          <button onClick={() => handleGoal('lose-weight')}>Lose Weight</button>
         </div>
       </div>
-      <div className={`what-muscles ${step !== 2 && 'hide'}`}>
+
+      <div className={`what-muscles ${step !== 'choose-muscles' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What muscles?</h2>
         <form className='question-flex-container'>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
@@ -36,11 +38,40 @@ const Questions = () => {
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('cardio')} id="cardio"/>
           <label htmlFor="cardio">Cardio</label>
         </form>
-        <div className="begin-workout">
-          <button onClick={beginWorkout}>Begin workout!</button>
+        <div className="begin-workout-wrapper">
+          <button className="begin-workout" onClick={submitMuscles}>Choose equipment!</button>
         </div>
       </div>
-      <div className={`${step !== 3 && 'hide'}`}>
+
+      {/* Body building - Choose equipment */}
+      <div className={`what-muscles ${step !== 'select-muscle-equipment' ? 'hide' : ''}`}>
+        <h2 className='heading center-text'>What equipment do you have access to?</h2>
+        <form className='question-flex-container'>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('gym')} id="gym"/>
+          <label htmlFor="gym">Full gym</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('dumbbells')} id="dumbbells"/>
+          <label htmlFor="dumbbells">Dumbbells</label>
+        </form>
+        <div className="begin-workout-wrapper">
+          <button className="begin-workout" onClick={beginWorkout}>Begin workout!</button>
+        </div>
+      </div>
+
+      {/* Lose weight - Choose equipment */}
+      <div className={`what-muscles ${step !== 'lose-weight-equipment' ? 'hide' : ''}`}>
+        <h2 className='heading center-text'>What equipment do you have access to?</h2>
+        <form className='question-flex-container'>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('jumprope')} id="jumprope"/>
+          <label htmlFor="jumprope">Jump rope</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('body-weight')} id="body-weight"/>
+          <label htmlFor="body-weight">Body weight</label>
+        </form>
+        <div className="begin-workout-wrapper">
+          <button className="begin-workout" onClick={beginWorkout}>Begin workout!</button>
+        </div>
+      </div>
+
+      <div className={`${step !== 'workout' && 'hide'}`}>
         <h2>Here's your workout!</h2>
       </div>
     </QuestionsWrapper>
@@ -58,10 +89,15 @@ const QuestionsWrapper = styled.div`
     flex-wrap: wrap;
   }
 
-  .begin-workout {
+  .begin-workout-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .begin-workout {
+    border-bottom: 3px solid #1B0C69;
+    background-color: white;
   }
 
   .muscle-checkbox { appearance: none; }
@@ -116,6 +152,10 @@ const QuestionsWrapper = styled.div`
 
   .muscle-checkbox:checked + label {
     &:after { content: url('${heartDark}'); }
+  }
+
+  .begin-workout {
+    border-bottom: 3px solid #41D3A2;
   }
 }
 `
