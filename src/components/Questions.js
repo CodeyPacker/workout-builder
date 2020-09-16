@@ -70,10 +70,6 @@ const Questions = () => {
           <button className="begin-workout" onClick={beginWorkout}>Begin workout!</button>
         </div>
       </div>
-
-      <div className={`${step !== 'workout' && 'hide'}`}>
-        <h2>Here's your workout!</h2>
-      </div>
     </QuestionsWrapper>
   )
 }

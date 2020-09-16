@@ -42,8 +42,10 @@ function ContextProvider(props) {
     }
 
     const beginWorkout = () => {
-        setWorkoutStatus(prev => true)
-        setStep(prevStep => prevStep = 'workout')
+        if (equipment.length !== 0) {
+            setWorkoutStatus(prev => true)
+            setStep(prevStep => prevStep = 'workout')
+        }
         console.log('Muscles:');
         console.table(muscles);
         console.log('Equipment:');
@@ -52,11 +54,11 @@ function ContextProvider(props) {
 
     // make a more generic function for updating the step
     const submitMuscles = () => {
-        setStep(prevStep => prevStep = 'select-muscle-equipment')
+        muscles.length !== 0 && setStep(prevStep => prevStep = 'select-muscle-equipment')
     }
 
     return (
-        <Context.Provider value={{theme, toggleTheme, handleGoal, step, handleMuscle, beginWorkout, submitMuscles, handleEquipment}}>
+        <Context.Provider value={{theme, toggleTheme, handleGoal, step, muscles, handleMuscle, beginWorkout, submitMuscles, equipment, handleEquipment}}>
             {props.children}
         </Context.Provider>
     )

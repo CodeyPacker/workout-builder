@@ -4,6 +4,7 @@ import {Context} from './context'
 import './styles/App.css';
 import ThemeToggle from './components/ThemeToggle'
 import Questions from './components/Questions'
+import Workout from './components/Workout'
 
 const App = () => {
   const {theme} = useContext(Context)
@@ -14,6 +15,7 @@ const App = () => {
         <ThemeToggle/>
       </header>
       <Questions/>
+      <Workout/>
     </AppWrapper>
   );
 }
