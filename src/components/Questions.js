@@ -18,7 +18,7 @@ const Questions = () => {
         </div>
       </div>
 
-      <div className={`what-muscles ${step !== 'choose-muscles' ? 'hide' : ''}`}>
+      <div className={`multiple-choice ${step !== 'choose-muscles' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What muscles?</h2>
         <form className='question-flex-container'>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
@@ -44,7 +44,7 @@ const Questions = () => {
       </div>
 
       {/* Body building - Choose equipment */}
-      <div className={`what-muscles ${step !== 'select-muscle-equipment' ? 'hide' : ''}`}>
+      <div className={`multiple-choice ${step !== 'select-muscle-equipment' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What equipment do you have access to?</h2>
         <form className='question-flex-container'>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('gym')} id="gym"/>
@@ -58,7 +58,7 @@ const Questions = () => {
       </div>
 
       {/* Lose weight - Choose equipment */}
-      <div className={`what-muscles ${step !== 'lose-weight-equipment' ? 'hide' : ''}`}>
+      <div className={`multiple-choice ${step !== 'lose-weight-equipment' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What equipment do you have access to?</h2>
         <form className='question-flex-container'>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('jumprope')} id="jumprope"/>
@@ -96,24 +96,29 @@ const QuestionsWrapper = styled.div`
     background-color: white;
   }
 
-  .muscle-checkbox { appearance: none; }
+  .muscle-checkbox {
+    appearance: none;
+    margin: 0;
+  }
 
+  ${'' /* Initialize height at 0 to create a transition effect */}
   button,
   .muscle-checkbox + label {
     padding: 15px 20px;
-    margin: 15px;
     background-color: #41D3A2;
     color: #1B0C69;
     border: 0;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    min-width: 250px;
     text-align: center;
-  }
+    margin: 0 15px 25px;
 
-  ${'' /* Initialize height at 0 to create a transition effect */}
-  .muscle-checkbox + label {
+    @media only screen and (max-width: 600px) {
+      width: calc(50% - 30px);
+      display: inline-block;
+    }
+
     &:after {
       content: '';
       height: 0;
