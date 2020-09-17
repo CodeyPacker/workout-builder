@@ -14,7 +14,6 @@ const Questions = () => {
         <div className='question-flex-container'>
           <button onClick={() => handleGoal('muscle')}>Build Muscle</button>
           <button onClick={() => handleGoal('strength')}>Build Strength</button>
-          <button onClick={() => handleGoal('lose-weight')}>Lose Weight</button>
         </div>
       </div>
 
@@ -33,10 +32,8 @@ const Questions = () => {
           <label htmlFor="back">Back</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('legs')} id="legs"/>
           <label htmlFor="legs">Legs</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('abs')} id="abs"/>
-          <label htmlFor="abs">Abs</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('cardio')} id="cardio"/>
-          <label htmlFor="cardio">Cardio</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('full-body')} id="full-body"/>
+          <label htmlFor="cardio">Full body</label>
         </form>
         <div className="begin-workout-wrapper">
           <button className="begin-workout" onClick={submitMuscles}>Choose equipment!</button>

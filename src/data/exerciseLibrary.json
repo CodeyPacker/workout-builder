@@ -1,0 +1,227 @@
+{
+  "chest": [
+    {
+      "specificMuscles": ["upper", "middle", "lower"]
+    },
+    {
+      "muscleGroup": "chest",
+      "isolate": "middle",
+      "name": "Dumbbell chest press",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "chest",
+      "name": "Incline Dumbell Flye",
+      "isolate": "upper",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "chest",
+      "name": "Dips",
+      "isolate": "lower",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "chest",
+      "name": "Bench Press",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "chest",
+      "name": "Incline Bench Press",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "chest",
+      "name": "Decline Bench Press",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    }
+  ],
+  "biceps": [
+    {
+      "specificMuscles": ["short", "long"]
+    },
+    {
+      "muscleGroup": "biceps",
+      "isolate": "long",
+      "name": "hammer curls",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "biceps",
+      "name": "drag curls",
+      "isolate": "short",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15]
+    },
+    {
+      "muscleGroup": "biceps",
+      "name": "preacher curls",
+      "isolate": "long",
+      "compound": false,
+      "strength": [12, 12, 12, 15],
+      "hypertrophy": [12, 12, 12, 15]
+    },
+    {
+      "muscleGroup": "biceps",
+      "name": "pull up",
+      "isolate": "short",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"]
+    }
+  ],
+  "triceps": [
+    {
+      "specificMuscles": ["lateral", "medial", "long"]
+    },
+    {
+      "muscleGroup": "triceps",
+      "name": "rope pull down",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15]
+    },
+    {
+      "muscleGroup": "triceps",
+      "name": "tricep extension",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15]
+    },
+    {
+      "muscleGroup": "triceps",
+      "name": "dips",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"]
+    }
+  ],
+  "back": [
+    {
+      "muscleGroup": "back",
+      "name": "dead-lift",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "back",
+      "name": "chin up",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "back",
+      "name": "barbell bent over row",
+      "compound": true,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"]
+    }
+  ],
+  "legs": [
+    {
+      "muscleGroup": "legs",
+      "name": "Leg extensions",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8, 4]
+    },
+    {
+      "muscleGroup": "legs",
+      "name": "Leg curls",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "legs",
+      "name": "Squats",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    }
+  ],
+  "shoulders": [
+    {
+      "muscleGroup": "shoulders",
+      "name": "Shoulder press",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "shoulders",
+      "name": "Front raises",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "front"
+    },
+    {
+      "muscleGroup": "shoulders",
+      "name": "Lateral raises",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "side"
+    },
+    {
+      "muscleGroup": "shoulders",
+      "name": "Rear delt fly",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "rear"
+    }
+  ],
+  "abs": [
+    {
+      "muscleGroup": "abs",
+      "name": "ab press",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8]
+    },
+    {
+      "muscleGroup": "abs",
+      "name": "Front ab raises",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "front"
+    },
+    {
+      "muscleGroup": "abs",
+      "name": "Lateral ab raises",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "side"
+    },
+    {
+      "muscleGroup": "abs",
+      "name": "Rear delt fly for abs though",
+      "compound": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "requiredSlot": "rear"
+    }
+  ]
+}
