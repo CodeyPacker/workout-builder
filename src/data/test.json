@@ -16,7 +16,7 @@
       "combo": ["chest", "triceps"]
     },
     {
-      "name": "Incline Dumbell Fly",
+      "name": "Incline Dumbbell Fly",
       "target-muscle": "upper",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
