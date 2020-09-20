@@ -1,27 +1,24 @@
 {
   "chest": [
     {
-      "muscles": ["upper", "middle", "lower"]
-    },
-    {
       "name": "Dumbbell chest press",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "bands": true
       }
     },
     {
-      "name": "Incline Dumbell Flye",
+      "name": "Incline Dumbell Fly",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "bands": true
       }
@@ -33,7 +30,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dip station": true
       }
     },
@@ -44,7 +41,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "bench": true
       }
@@ -56,7 +53,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "bench": true
       }
@@ -68,7 +65,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "bench": true
       }
@@ -76,15 +73,12 @@
   ],
   "biceps": [
     {
-      "muscles": ["short", "long"]
-    },
-    {
       "name": "hammer curls",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "bands": true
       }
@@ -95,7 +89,7 @@
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "bands": true
       }
@@ -106,7 +100,7 @@
       "strength": [12, 12, 12, 15],
       "hypertrophy": [12, 12, 12, 15],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "barbell": true
       }
@@ -117,7 +111,7 @@
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "pull-up-bar": true
       }
     },
@@ -128,22 +122,19 @@
       "hypertrophy": ["to failure", "to failure", "to failure"],
       "combo": ["back", "biceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "pull-up-bar": true
       }
     }
   ],
   "triceps": [
     {
-      "muscles": ["lateral", "medial", "long"]
-    },
-    {
       "name": "rope pull down",
       "compound": false,
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "cables": true
       }
     },
@@ -153,7 +144,7 @@
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbells": true,
         "barbell": true
       }
@@ -165,7 +156,7 @@
       "hypertrophy": ["to failure", "to failure", "to failure"],
       "combo": ["chest", "triceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dip-station": true
       }
     }
@@ -177,7 +168,7 @@
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "dumbbell": true
       }
@@ -189,7 +180,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "combo": ["back", "biceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "pull-up-bar": true
       }
     },
@@ -200,7 +191,7 @@
       "hypertrophy": ["to failure", "to failure", "to failure"],
       "combo": ["back", "biceps"],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "dumbbell": true
       }
@@ -213,7 +204,7 @@
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8, 4],
       "equipment": {
-        "full-gym": true
+        "gym": true
       }
     },
     {
@@ -222,7 +213,7 @@
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true
+        "gym": true
       }
     },
     {
@@ -231,7 +222,7 @@
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "barbell": true,
         "dumbbell": true,
         "kettlebell": true
@@ -245,7 +236,7 @@
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbell": true,
         "bands": true
       }
@@ -257,7 +248,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "requiredSlot": "front",
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbell": true,
         "bands": true
       }
@@ -269,7 +260,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "requiredSlot": "side",
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbell": true,
         "bands": true
       }
@@ -281,7 +272,7 @@
       "hypertrophy": [15, 12, 10, 8],
       "requiredSlot": "rear",
       "equipment": {
-        "full-gym": true,
+        "gym": true,
         "dumbbell": true,
         "bands": true
       }

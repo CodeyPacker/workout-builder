@@ -5,6 +5,7 @@ import './styles/App.css';
 import ThemeToggle from './components/ThemeToggle'
 import Questions from './components/Questions'
 import Workout from './components/Workout'
+import GenerateWorkout from './components/GenerateWorkout'
 
 const App = () => {
   const {theme} = useContext(Context)
@@ -16,6 +17,7 @@ const App = () => {
       </header>
       <Questions/>
       <Workout/>
+      <GenerateWorkout/>
     </AppWrapper>
   );
 }

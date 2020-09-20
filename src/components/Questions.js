@@ -5,7 +5,7 @@ import heartLight from '../images/heart-light.svg'
 import heartDark from '../images/heart-dark.svg'
 
 const Questions = () => {
-  const {theme, handleGoal, step, handleMuscle, submitMuscles, handleEquipment, beginWorkout} = useContext(Context)
+  const {theme, handleGoal, step, handleMuscle, submitMuscles, handleEquipment, handleBeginWorkout} = useContext(Context)
 
   return (
     <QuestionsWrapper className={`${theme}-theme `}>
@@ -50,7 +50,7 @@ const Questions = () => {
           <label htmlFor="dumbbells">Dumbbells</label>
         </form>
         <div className="begin-workout-wrapper">
-          <button className="begin-workout" onClick={beginWorkout}>Begin workout!</button>
+          <button className="begin-workout" onClick={handleBeginWorkout}>Begin workout!</button>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ const Questions = () => {
           <label htmlFor="body-weight">Body weight</label>
         </form>
         <div className="begin-workout-wrapper">
-          <button className="begin-workout" onClick={beginWorkout}>Begin workout!</button>
+          <button className="begin-workout" onClick={handleBeginWorkout}>Begin workout!</button>
         </div>
       </div>
     </QuestionsWrapper>

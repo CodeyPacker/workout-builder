@@ -1,4 +1,6 @@
 import React, {useState} from "react"
+import exerciseLibrary from './data/exerciseLibrary.json'
+
 const Context = React.createContext()
 
 function ContextProvider(props) {
@@ -6,10 +8,11 @@ function ContextProvider(props) {
     const [goal, setGoal] = useState("")
     const [step, setStep] = useState('choose-goal')
     const [muscles, setMuscles] = useState([])
-    const [workoutInProgress, setWorkoutStatus] = useState(false)
+    const [beginWorkout, setBeginWorkout] = useState(false)
     const [equipment, setEquipment] = useState([])
-
-    console.log(step);
+    const [possibleExercises, setPossibleExercises] = useState([])
+    const [activeExercises, setActiveExercises] = useState([])
+    const [combo, setCombo] = useState("")
 
     function toggleTheme() {
         setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
@@ -37,19 +40,42 @@ function ContextProvider(props) {
         !equipment.includes(selection)
             ? setEquipment(prevEquipment => prevEquipment.concat(selection))
             : setEquipment(prevEquipment => prevEquipment.filter(e => e !== selection))
-
-        console.log('handleEquipment');
     }
 
-    const beginWorkout = () => {
+    // Initializes workout => beginWorkout = true
+    // Fills selectedExercises based on muscle and equipment selection
+    const handleBeginWorkout = () => {
         if (equipment.length !== 0) {
-            setWorkoutStatus(prev => true)
+            setBeginWorkout(prev => true)
             setStep(prevStep => prevStep = 'workout')
         }
-        console.log('Muscles:');
-        console.table(muscles);
-        console.log('Equipment:');
-        console.table(equipment);
+
+        // this gets moved into state after filled
+        let selectedExercises = [];
+
+        if (muscles.length > 0) {
+          muscles.map(muscle => {
+            exerciseLibrary[muscle].map(exercise => {
+                if (equipment.includes('gym')) { // include all exercises
+                    selectedExercises.push(exercise)
+                } else { // only add if compatible with users equipment
+                    equipment.map(equip => {
+                        equip in exercise.equipment && selectedExercises.push(exercise)
+                    })
+                }
+            })
+          })
+
+          // Fisher - Yates shuffle | Shuffle exercises
+          for (let i = selectedExercises.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [selectedExercises[i], selectedExercises[j]] = [selectedExercises[j], selectedExercises[i]];
+          }
+
+          setPossibleExercises(() => possibleExercises.concat(selectedExercises))
+        }
+
+        // filter by combos
     }
 
     // make a more generic function for updating the step
@@ -58,7 +84,7 @@ function ContextProvider(props) {
     }
 
     return (
-        <Context.Provider value={{theme, toggleTheme, handleGoal, step, muscles, handleMuscle, beginWorkout, submitMuscles, equipment, handleEquipment}}>
+        <Context.Provider value={{beginWorkout, possibleExercises, setPossibleExercises, theme, toggleTheme, handleGoal, step, muscles, handleMuscle, handleBeginWorkout, submitMuscles, equipment, handleEquipment}}>
             {props.children}
         </Context.Provider>
     )
