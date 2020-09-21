@@ -1,11 +1,16 @@
 {
   "chest": [
     {
+      "angles": ["upper", "middle", "lower"]
+    },
+    {
       "name": "Dumbbell chest press",
+      "muscle": "chest",
+      "angle": "middle",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "dumbbells": true,
@@ -14,6 +19,8 @@
     },
     {
       "name": "Incline Dumbell Fly",
+      "muscle": "chest",
+      "angle": "upper",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -25,10 +32,12 @@
     },
     {
       "name": "Dips",
+      "muscle": "chest",
+      "angle": "lower",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "dip station": true
@@ -36,10 +45,12 @@
     },
     {
       "name": "Bench Press",
+      "muscle": "chest",
+      "angle": "middle",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "barbell": true,
@@ -48,10 +59,12 @@
     },
     {
       "name": "Incline Bench Press",
+      "muscle": "chest",
+      "angle": "upper",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "barbell": true,
@@ -60,10 +73,12 @@
     },
     {
       "name": "Decline Bench Press",
+      "muscle": "chest",
+      "angle": "lower",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "barbell": true,
@@ -154,7 +169,7 @@
       "compound": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
-      "combo": ["chest", "triceps"],
+      "combo": true,
       "equipment": {
         "gym": true,
         "dip-station": true

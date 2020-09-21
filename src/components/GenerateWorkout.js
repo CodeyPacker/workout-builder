@@ -35,8 +35,6 @@ const GenerateWorkout = () => {
   //  }
   // })
 
-  console.log(possibleExercises);
-
   return (
     <section>
       <h2>Test</h2>
