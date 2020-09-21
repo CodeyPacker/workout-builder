@@ -11,7 +11,7 @@ function ContextProvider(props) {
   const [beginWorkout, setBeginWorkout] = useState(false);
   const [equipment, setEquipment] = useState([]);
   const [possibleExercises, setPossibleExercises] = useState([]);
-  const [activeExercises, setActiveExercises] = useState([]);
+  let [activeExercises, setActiveExercises] = useState([]);
   const [combo, setCombo] = useState("");
 
   function toggleTheme() {
@@ -44,6 +44,17 @@ function ContextProvider(props) {
         );
   };
 
+  const shuffle = (arr) => {
+    // Fisher - Yates shuffle | Shuffle exercises
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [
+          arr[j],
+          arr[i],
+        ];
+      }
+  }
+
   // Initializes workout => beginWorkout = true
   // Fills selectedExercises based on muscle and equipment selection
   const handleBeginWorkout = () => {
@@ -71,18 +82,38 @@ function ContextProvider(props) {
       });
     });
 
-    // Fisher - Yates shuffle | Shuffle exercises
-    for (let i = selectedExercises.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [selectedExercises[i], selectedExercises[j]] = [
-        selectedExercises[j],
-        selectedExercises[i],
-      ];
-    }
+    shuffle(selectedExercises)
 
     setPossibleExercises(() => possibleExercises.concat(selectedExercises));
   };
+  let targetedExercises = []
 
+  if (beginWorkout) {
+    console.log(possibleExercises);
+    // for each muscle, find an exercise that hits each angle.
+    let numOfExercises = muscles.length > 1 ? 8 : 6
+    let totalAngles = null
+    // Start filling the exercises in
+    // add 1 exercise that'll hit each angle
+        muscles.forEach(muscle => {
+            if (muscles.length < 3) {
+                let angles = exerciseLibrary[muscle].find(ex => {
+                    return ex.angles
+                })
+                angles['angles'].forEach(a => {
+                    totalAngles += 1
+                    return targetedExercises.push(possibleExercises.find(ex => ex.angle === a ))
+                })
+
+            } else {
+                targetedExercises.push(possibleExercises.find(ex => ex.muscle === muscle))
+            }
+        })
+        // figure out how to use useState instead.
+        // It infinite loops
+        activeExercises = targetedExercises
+  }
+  console.log(activeExercises);
   // Prioritize combos
   // if (beginWorkout) {
   //     console.log(possibleExercises);
