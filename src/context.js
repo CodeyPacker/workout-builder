@@ -118,7 +118,10 @@ function ContextProvider(props) {
     }
 
     const findSpecificExercise = (muscle, key, value) => {
-      return possibleExercises[muscle].find(ex => ex[key] === value)
+      console.log(possibleExercises)
+      return possibleExercises.find(ex => {
+        if (ex.muscle === muscle && ex[key] === value) { return ex }
+      })
     }
 
     let testAllExercises = []
@@ -130,15 +133,23 @@ function ContextProvider(props) {
       compound && testAllExercises.push(compound)
 
       exercise.forEach(ex => testAllExercises.push(ex))
-      console.log(testAllExercises)
-
-      // make a function that will fill in the rest of the exercises
-      // and a failsafe if too many are added
-
       // make a function that removes an exercise from possibleExercises
       // to run everytime an exercise is added so no duplicates occur
     })
 
+    console.log(numOfExercises)
+    console.log(testAllExercises.length)
+
+    let muscleArrayPosition = 0
+    while (testAllExercises.length < numOfExercises) {
+      console.log(muscles[muscleArrayPosition])
+      console.log(muscles.length)
+      let addedMuscle = findSpecificExercise(muscles[muscleArrayPosition], 'muscle', muscles[muscleArrayPosition])
+      testAllExercises.push(addedMuscle)
+      // muscleArrayPosition <= (muscles.length - 1) ? muscleArrayPosition += 1 : muscleArrayPosition = 0
+      muscleArrayPosition === muscles.length - 1 ? muscleArrayPosition = 0 : muscleArrayPosition += 1
+    }
+    console.log(testAllExercises)
     console.log(
       `active: ${targetedExercises.length} - numOfExercises: ${numOfExercises}`
     );

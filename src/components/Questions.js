@@ -20,20 +20,18 @@ const Questions = () => {
       <div className={`multiple-choice ${step !== 'choose-muscles' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What muscles?</h2>
         <form className='question-flex-container'>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
+          <label htmlFor="back">Back</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
           <label htmlFor="biceps">Biceps</label>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('chest')} id="chest"/>
+          <label htmlFor="chest">Chest</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
           <label htmlFor="triceps">Triceps</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('shoulders')} id="shoulders"/>
           <label htmlFor="shoulders">Shoulders</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('chest')} id="chest"/>
-          <label htmlFor="chest">Chest</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
-          <label htmlFor="back">Back</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('legs')} id="legs"/>
           <label htmlFor="legs">Legs</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('full-body')} id="full-body"/>
-          <label htmlFor="cardio">Full body</label>
         </form>
         <div className="begin-workout-wrapper">
           <button className="begin-workout" onClick={submitMuscles}>Choose equipment!</button>
@@ -110,6 +108,7 @@ const QuestionsWrapper = styled.div`
     cursor: pointer;
     text-align: center;
     margin: 0 15px 25px;
+    min-width: 200px;
 
     @media only screen and (max-width: 600px) {
       width: calc(50% - 30px);
