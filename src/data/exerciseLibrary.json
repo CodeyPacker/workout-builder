@@ -10,7 +10,6 @@
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
       "equipment": {
         "gym": true,
         "dumbbells": true,
@@ -50,6 +49,7 @@
       "muscle": "chest",
       "angle": "upper",
       "compound": false,
+      "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
@@ -129,8 +129,12 @@
   ],
   "biceps": [
     {
+      "angles": ["long", "short"]
+    },
+    {
       "name": "hammer curls",
       "muscle": "biceps",
+      "angle": "long",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -143,6 +147,7 @@
     {
       "name": "drag curls",
       "muscle": "biceps",
+      "angle": "short",
       "compound": false,
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],
@@ -155,6 +160,7 @@
     {
       "name": "preacher curls",
       "muscle": "biceps",
+      "angle": "long",
       "compound": false,
       "strength": [12, 12, 12, 15],
       "hypertrophy": [12, 12, 12, 15],
@@ -167,6 +173,7 @@
     {
       "name": "pull up",
       "muscle": "biceps",
+      "angle": "short",
       "compound": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
@@ -178,6 +185,7 @@
     {
       "name": "chin up",
       "muscle": "biceps",
+      "angle": "long",
       "compound": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
@@ -194,6 +202,7 @@
     },
     {
       "name": "rope pull down",
+      "combo": true,
       "muscle": "triceps",
       "angle": "medial",
       "compound": false,
@@ -229,12 +238,42 @@
         "gym": true,
         "dip-station": true
       }
+    },
+    {
+      "name": "trips",
+      "muscle": "triceps",
+      "combo": true,
+      "angle": "long",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"],
+      "combo": true,
+      "equipment": {
+        "gym": true,
+        "dip-station": true
+      }
+    },
+    {
+      "name": "splits",
+      "muscle": "triceps",
+      "angle": "lateral",
+      "compound": true,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"],
+      "equipment": {
+        "gym": true,
+        "dip-station": true
+      }
     }
   ],
   "back": [
     {
+      "angles": ["lats", "traps"]
+    },
+    {
       "name": "dead-lift",
       "muscle": "back",
+      "angle": "all",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -247,6 +286,7 @@
     {
       "name": "chin up",
       "muscle": "back",
+      "angle": "lats",
       "compound": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": [15, 12, 10, 8],
@@ -259,6 +299,7 @@
     {
       "name": "bent over row",
       "muscle": "back",
+      "angle": "lats",
       "compound": true,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
@@ -307,8 +348,12 @@
   ],
   "shoulders": [
     {
+      "angles": ["front", "side", "rear"]
+    },
+    {
       "name": "Shoulder press",
       "muscle": "shoulders",
+      "angle": "front",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -321,6 +366,7 @@
     {
       "name": "Front raises",
       "muscle": "shoulders",
+      "angle": "side",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -334,6 +380,7 @@
     {
       "name": "Lateral raises",
       "muscle": "shoulders",
+      "angle": "side",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
@@ -347,6 +394,7 @@
     {
       "name": "Rear delt fly",
       "muscle": "shoulders",
+      "angle": "rear",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
