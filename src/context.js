@@ -88,66 +88,77 @@ function ContextProvider(props) {
   let possibleExercisesClone = possibleExercises
   let numOfExercises = muscles.length > 1 ? 8 : 6;
 
-  if (beginWorkout && activeExercises.length < numOfExercises) {
-    const removeExercise = (exerciseObj) => {
-      possibleExercisesClone.filter((ex) => {
-        return ex.name !== exerciseObj.name
-      })
+  const removeExercise = (exerciseObj) => {
+    possibleExercisesClone.filter((ex) => {
+      return ex.name !== exerciseObj.name
+    })
+  }
+
+  /**
+   * returns an array of 1 exercise per angle, per muscle
+   */
+  const findAngleExercises = (muscle, angles) => {
+    // determine if combo might be available || Tried using state
+    let combo = false;
+
+    if (muscles.includes("chest") && muscles.includes("triceps")) {
+      combo = true;
     }
 
-    const findAngleExercises = (muscle, angles) => {
-      // determine if combo might be available || Tried using state
-      let combo = false;
+    // get exercise
+    // TODO: avoid duplicates
+    // TODO: add functionality to search for a combo
+    let exercise = angles.map((angle) => {
+      return possibleExercises.find((ex) => ex.muscle === muscle && ex.angle === angle);
+    });
+    
+    return exercise;
+    // return allExercises
+  };
+      
 
-      if (muscles.includes("chest") && muscles.includes("triceps")) {
-        combo = true;
+  /**
+   * returns an array with each angle for the muscle selected
+   */
+  const findAngles = (muscle) => {
+    let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles);
+    return foundAngles.angles;
+  };
+
+  /**
+   * returns an exercise object that matches the key and value passed in
+   */
+  const findSpecificExercise = (muscle, key, value) => {
+    return possibleExercisesClone.find((ex) => {
+      if (ex.muscle === muscle && ex[key] === value) {
+        return ex;
       }
+    });
+  };
 
-      // get exercise
-      let exercise = angles.map((angle) => {
-        return possibleExercises.find((ex) => {
-          if (combo) {
-            // try searching for a combo
-            return ex.muscle === muscle && ex.angle === angle;
-          } else {
-            return ex.muscle === muscle && ex.angle === angle;
-          }
-        });
-      });
-
-      return exercise;
-      // return allExercises
-    };
-
-    const findAngles = (muscle) => {
-      let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles);
-      return foundAngles.angles;
-    };
-
-    const findSpecificExercise = (muscle, key, value) => {
-      return possibleExercisesClone.find((ex) => {
-        if (ex.muscle === muscle && ex[key] === value) {
-          return ex;
-        }
-      });
-    };
-
-
+  const initialize = () => {
+    /**
+     * Start the workout creation
+     */
     muscles.forEach((muscle, i) => {
       let angles = findAngles(muscle);
       let exercise = findAngleExercises(muscle, angles);
       let compound = findSpecificExercise(muscle, "compound", true);
-      removeExercise(compound);
       compound && activeExercisesClone.push(compound);
-
       exercise.forEach((ex) => {
         removeExercise(ex)
         return activeExercisesClone.push(ex)
       });
       // make a function that removes an exercise from possibleExercises
       // to run every time an exercise is added so no duplicates occur
+      console.log(activeExercisesClone)
     });
+  }
 
+  if (beginWorkout && activeExercises.length < numOfExercises) { // start workout if questions are answered & there are enough exercises
+    initialize()
+
+    // add exercises until there are enough & remove the found exercise from the source of truth
     let muscleArrayPosition = 0;
     while (activeExercisesClone.length < numOfExercises) {
       let addedMuscle = findSpecificExercise(
@@ -161,7 +172,6 @@ function ContextProvider(props) {
         ? (muscleArrayPosition = 0)
         : (muscleArrayPosition += 1);
     }
-    console.log(activeExercisesClone);
     console.log(
       `active: ${activeExercisesClone.length} - numOfExercises: ${numOfExercises}`
     );
