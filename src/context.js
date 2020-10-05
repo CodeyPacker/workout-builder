@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import exerciseLibrary from "./data/exerciseLibrary.json";
-
+// TODO: GET REMOVE EXERCISE TO WORK
 const Context = React.createContext();
 
 function ContextProvider(props) {
@@ -10,7 +10,7 @@ function ContextProvider(props) {
   const [muscles, setMuscles] = useState([]);
   const [beginWorkout, setBeginWorkout] = useState(false);
   const [equipment, setEquipment] = useState([]);
-  const [possibleExercises, setPossibleExercises] = useState([]);
+  let [possibleExercises, setPossibleExercises] = useState([]);
   let [activeExercises, setActiveExercises] = useState([]);
   // const [combo, setCombo] = useState(false);
 
@@ -32,7 +32,7 @@ function ContextProvider(props) {
     // add the muscle names to the array
     !muscles.includes(selection)
       ? setMuscles((prevMuscles) => prevMuscles.concat(selection))
-      : setMuscles((prevMuscles) => prevMuscles.filter((e) => e !== selection))
+      : setMuscles((prevMuscles) => prevMuscles.filter((e) => e !== selection));
   }
 
   const handleEquipment = (selection) => {
@@ -84,74 +84,86 @@ function ContextProvider(props) {
     setPossibleExercises(() => possibleExercises.concat(selectedExercises));
   };
 
-  let targetedExercises = [];
+  let activeExercisesClone = [];
   let possibleExercisesClone = possibleExercises
-
   let numOfExercises = muscles.length > 1 ? 8 : 6;
-  let maxExercises = numOfExercises === 8 ? 4 : 6
 
   if (beginWorkout && activeExercises.length < numOfExercises) {
+    const removeExercise = (exerciseObj) => {
+      possibleExercisesClone.filter((ex) => {
+        return ex.name !== exerciseObj.name
+      })
+    }
 
     const findAngleExercises = (muscle, angles) => {
       // determine if combo might be available || Tried using state
-      let combo = false
+      let combo = false;
 
-      if (muscles.includes('chest') && muscles.includes('triceps')) { combo = true }
+      if (muscles.includes("chest") && muscles.includes("triceps")) {
+        combo = true;
+      }
 
       // get exercise
-      let exercise = angles.map(angle => {
-        return possibleExercises.find(ex => {
+      let exercise = angles.map((angle) => {
+        return possibleExercises.find((ex) => {
           if (combo) {
             // try searching for a combo
-            return ex.muscle === muscle && ex.angle === angle
-          } else { return ex.muscle === muscle && ex.angle === angle }
-        })
-      })
+            return ex.muscle === muscle && ex.angle === angle;
+          } else {
+            return ex.muscle === muscle && ex.angle === angle;
+          }
+        });
+      });
 
-      return exercise
+      return exercise;
       // return allExercises
-    }
+    };
 
     const findAngles = (muscle) => {
       let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles);
-      return foundAngles.angles
-    }
+      return foundAngles.angles;
+    };
 
     const findSpecificExercise = (muscle, key, value) => {
-      console.log(possibleExercises)
-      return possibleExercises.find(ex => {
-        if (ex.muscle === muscle && ex[key] === value) { return ex }
-      })
-    }
+      return possibleExercisesClone.find((ex) => {
+        if (ex.muscle === muscle && ex[key] === value) {
+          return ex;
+        }
+      });
+    };
 
-    let testAllExercises = []
 
     muscles.forEach((muscle, i) => {
-      let angles = findAngles(muscle)
-      let exercise = findAngleExercises(muscle, angles)
-      let compound = findSpecificExercise(muscle, 'compound', true)
-      compound && testAllExercises.push(compound)
+      let angles = findAngles(muscle);
+      let exercise = findAngleExercises(muscle, angles);
+      let compound = findSpecificExercise(muscle, "compound", true);
+      removeExercise(compound);
+      compound && activeExercisesClone.push(compound);
 
-      exercise.forEach(ex => testAllExercises.push(ex))
+      exercise.forEach((ex) => {
+        removeExercise(ex)
+        return activeExercisesClone.push(ex)
+      });
       // make a function that removes an exercise from possibleExercises
-      // to run everytime an exercise is added so no duplicates occur
-    })
+      // to run every time an exercise is added so no duplicates occur
+    });
 
-    console.log(numOfExercises)
-    console.log(testAllExercises.length)
-
-    let muscleArrayPosition = 0
-    while (testAllExercises.length < numOfExercises) {
-      console.log(muscles[muscleArrayPosition])
-      console.log(muscles.length)
-      let addedMuscle = findSpecificExercise(muscles[muscleArrayPosition], 'muscle', muscles[muscleArrayPosition])
-      testAllExercises.push(addedMuscle)
-      // muscleArrayPosition <= (muscles.length - 1) ? muscleArrayPosition += 1 : muscleArrayPosition = 0
-      muscleArrayPosition === muscles.length - 1 ? muscleArrayPosition = 0 : muscleArrayPosition += 1
+    let muscleArrayPosition = 0;
+    while (activeExercisesClone.length < numOfExercises) {
+      let addedMuscle = findSpecificExercise(
+        muscles[muscleArrayPosition],
+        "muscle",
+        muscles[muscleArrayPosition]
+      );
+      removeExercise(addedMuscle);
+      activeExercisesClone.push(addedMuscle);
+      muscleArrayPosition === muscles.length - 1
+        ? (muscleArrayPosition = 0)
+        : (muscleArrayPosition += 1);
     }
-    console.log(testAllExercises)
+    console.log(activeExercisesClone);
     console.log(
-      `active: ${targetedExercises.length} - numOfExercises: ${numOfExercises}`
+      `active: ${activeExercisesClone.length} - numOfExercises: ${numOfExercises}`
     );
   }
 
