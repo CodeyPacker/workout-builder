@@ -109,24 +109,6 @@ function ContextProvider(props) {
     // get exercise
     // TODO: make dry
     let exercise = angles.map((angle) => {
-
-      // if there's a combo, 
-        // find an exercise with a combo
-          // if it can't find one
-            // search for a normal one
-      // if ( combo ) {
-      //   return possibleExercises.find((ex) => {
-      //     if (ex.combo) {
-      //       return ex.muscle === muscle && ex.angle === angle && ex.combo && ex.equipment[equipment]
-      //     } else {
-      //       return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
-      //     }
-      //   })
-      // } else {
-      //   return possibleExercises.find((ex) => {
-      //     return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
-      //   })
-      // }\
       let selectedExercise = null
 
       if ( combo ) {
@@ -136,24 +118,17 @@ function ContextProvider(props) {
         })
       }
 
-      if (!selectedExercise) {
+      if ( !selectedExercise ) {
         selectedExercise = possibleExercises.find(ex => {
           return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
         })
       }
 
       return selectedExercise
-        // if ( selectedExercise ) {
-        //   return comboExercise
-        // } else {
-        //   return possibleExercises.find((ex) => {
-        //     return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
-        //   })
-        // }
+
       })
 
     console.log(exercise)
-    // removeExercise(exercise)
     return exercise
   }
 
