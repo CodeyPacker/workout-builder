@@ -85,7 +85,9 @@ function ContextProvider(props) {
   };
 
   let activeExercisesClone = [];
-  let possibleExercisesClone = possibleExercises
+  let possibleExercisesClone = [];
+
+  console.log(possibleExercisesClone)
   let numOfExercises = muscles.length > 1 ? 8 : 6;
 
   const removeExercise = (exerciseObj) => {
@@ -108,8 +110,11 @@ function ContextProvider(props) {
     // get exercise
     // TODO: avoid duplicates
     // TODO: add functionality to search for a combo
-    let exercise = angles.map((angle) => {
-      return possibleExercises.find((ex) => ex.muscle === muscle && ex.angle === angle);
+    let exercise = angles.map((angle) => {     
+      return possibleExercises.find((ex) => { 
+        possibleExercisesClone.filter((test) => test.name !== ex.name ) 
+        return ex.muscle === muscle && ex.angle === angle
+      });
     });
     
     return exercise;
@@ -137,26 +142,24 @@ function ContextProvider(props) {
   };
 
   const initialize = () => {
-    /**
+    possibleExercises.forEach(ex => possibleExercisesClone.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
+        /**
      * Start the workout creation
      */
-    muscles.forEach((muscle, i) => {
+    muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle);
       let exercise = findAngleExercises(muscle, angles);
-      let compound = findSpecificExercise(muscle, "compound", true);
-      compound && activeExercisesClone.push(compound);
+      // let compound = findSpecificExercise(muscle, "compound", true);
+      // compound && activeExercisesClone.push(compound);
       exercise.forEach((ex) => {
-        removeExercise(ex)
+        possibleExercisesClone.filter((test) => { // remove exercise
+          return test.name !== ex.name
+        })
         return activeExercisesClone.push(ex)
       });
       // make a function that removes an exercise from possibleExercises
       // to run every time an exercise is added so no duplicates occur
-      console.log(activeExercisesClone)
     });
-  }
-
-  if (beginWorkout && activeExercises.length < numOfExercises) { // start workout if questions are answered & there are enough exercises
-    initialize()
 
     // add exercises until there are enough & remove the found exercise from the source of truth
     let muscleArrayPosition = 0;
@@ -168,13 +171,17 @@ function ContextProvider(props) {
       );
       removeExercise(addedMuscle);
       activeExercisesClone.push(addedMuscle);
+      possibleExercisesClone.filter((test) => test.name !== addedMuscle.name)
       muscleArrayPosition === muscles.length - 1
         ? (muscleArrayPosition = 0)
         : (muscleArrayPosition += 1);
+        console.log(possibleExercisesClone) // TODO: removing the exercises isn't working
     }
-    console.log(
-      `active: ${activeExercisesClone.length} - numOfExercises: ${numOfExercises}`
-    );
+  }
+
+  if (beginWorkout && activeExercises.length < numOfExercises) { // start workout if questions are answered & there are enough exercises
+    setBeginWorkout((prev) => false);
+    initialize()
   }
 
   // make a more generic function for updating the step
