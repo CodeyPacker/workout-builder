@@ -186,6 +186,7 @@ function ContextProvider(props) {
   if ( beginWorkout && activeExercises.length < numOfExercises ) { // start workout if questions are answered & there are enough exercises
     setBeginWorkout((prev) => false)
     initialize()
+    setActiveExercises(() => activeExercises.concat(activeExercisesClone))
     console.log(activeExercisesClone)
     console.log(possibleExercises)
   }
@@ -202,6 +203,7 @@ function ContextProvider(props) {
         beginWorkout,
         possibleExercises,
         setPossibleExercises,
+        activeExercises,
         theme,
         toggleTheme,
         handleGoal,

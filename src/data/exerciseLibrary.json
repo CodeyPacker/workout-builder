@@ -17,6 +17,19 @@
       }
     },
     {
+      "name": "Left pec press",
+      "muscle": "chest",
+      "angle": "middle",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbells": true,
+        "bands": true
+      }
+    },
+    {
       "name": "Much cool chest",
       "muscle": "chest",
       "angle": "middle",
@@ -339,8 +352,12 @@
   ],
   "legs": [
     {
+      "angles": ["glutes", "hamstrings", "quads"]
+    },
+    {
       "name": "Leg extensions",
       "muscle": "legs",
+      "angle": "quads",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8, 4],
@@ -350,6 +367,7 @@
     },
     {
       "name": "Leg curls",
+      "angle": "glutes",
       "muscle": "legs",
       "compound": false,
       "strength": [5, 5, 5, 5, 5],
@@ -361,6 +379,7 @@
     {
       "name": "Squats",
       "muscle": "legs",
+      "angle": "quads",
       "compound": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],

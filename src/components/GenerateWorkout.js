@@ -4,7 +4,7 @@ import exerciseLibrary from '../data/exerciseLibrary.json'
 import styled from '@emotion/styled'
 
 const GenerateWorkout = () => {
-  const {muscles, beginWorkout, possibleExercises, setPossibleExercises} = useContext(Context)
+  const {muscles, beginWorkout, activeExercises} = useContext(Context)
 
   // Things to consider:
   // - filter out all exercises based on the muscles
@@ -38,7 +38,7 @@ const GenerateWorkout = () => {
   return (
     <section>
       <h2>Test</h2>
-      {possibleExercises.map(muscle => (
+      {activeExercises.map(muscle => (
         <MuscleName>{muscle.name}</MuscleName>
       ))}
     </section>
