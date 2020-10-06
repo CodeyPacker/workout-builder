@@ -3,7 +3,7 @@ import exerciseLibrary from "./data/exerciseLibrary.json"
 const Context = React.createContext()
 
 function ContextProvider(props) {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
   const [goal, setGoal] = useState("")
   const [step, setStep] = useState("choose-goal")
   const [muscles, setMuscles] = useState([])
@@ -28,7 +28,7 @@ function ContextProvider(props) {
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
-    if ( selection === "muscle" || selection === "strength" ) {
+    if ( selection === "hypertrophy" || selection === "strength" ) {
       setStep((prevStep) => "choose-muscles")
     } else {
       setStep((prevStep) => "lose-weight-equipment")
@@ -200,6 +200,7 @@ function ContextProvider(props) {
   return (
     <Context.Provider
       value={{
+        goal,
         beginWorkout,
         possibleExercises,
         setPossibleExercises,

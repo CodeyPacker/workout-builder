@@ -12,7 +12,7 @@ const Questions = () => {
       <div className={`whats-your-goal ${step !== 'choose-goal' && 'hide'}`}>
         <h2 className='heading center-text'>What's your goal?</h2>
         <div className='question-flex-container'>
-          <button onClick={() => handleGoal('muscle')}>Build Muscle</button>
+          <button onClick={() => handleGoal('hypertrophy')}>Build Muscle</button>
           <button onClick={() => handleGoal('strength')}>Build Strength</button>
         </div>
       </div>
@@ -99,16 +99,17 @@ const QuestionsWrapper = styled.div`
   ${'' /* Initialize height at 0 to create a transition effect */}
   button,
   .muscle-checkbox + label {
-    padding: 15px 20px;
+    padding: 20px;
     background-color: #41D3A2;
     color: #1B0C69;
     border: 0;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     cursor: pointer;
     text-align: center;
     margin: 0 15px 25px;
-    min-width: 200px;
+    min-width: 300px;
+    border-radius: 4px;
 
     @media only screen and (max-width: 600px) {
       width: calc(50% - 30px);
@@ -131,8 +132,8 @@ const QuestionsWrapper = styled.div`
     &:after {
       transition: width .2s, height .2s;
       content: url('${heartLight}');
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       margin-left: 5px;
     }
   }
