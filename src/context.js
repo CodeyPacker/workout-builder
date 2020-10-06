@@ -85,14 +85,14 @@ function ContextProvider(props) {
   };
 
   let activeExercisesClone = [];
-  let possibleExercisesClone = [];
-
-  console.log(possibleExercisesClone)
   let numOfExercises = muscles.length > 1 ? 8 : 6;
 
   const removeExercise = (exerciseObj) => {
-    possibleExercisesClone.filter((ex) => {
-      return ex.name !== exerciseObj.name
+    possibleExercises.forEach((ex, i) => {
+      if (ex.name === exerciseObj.name ) {
+        possibleExercises.splice(i, 1);
+        return
+      }
     })
   }
 
@@ -110,15 +110,14 @@ function ContextProvider(props) {
     // get exercise
     // TODO: avoid duplicates
     // TODO: add functionality to search for a combo
-    let exercise = angles.map((angle) => {     
-      return possibleExercises.find((ex) => { 
-        possibleExercisesClone.filter((test) => test.name !== ex.name ) 
+    let exercise = angles.map((angle) => {
+      return possibleExercises.find((ex) => {
+        possibleExercises.filter((test) => test.name !== ex.name )
         return ex.muscle === muscle && ex.angle === angle
       });
     });
     
     return exercise;
-    // return allExercises
   };
       
 
@@ -134,7 +133,7 @@ function ContextProvider(props) {
    * returns an exercise object that matches the key and value passed in
    */
   const findSpecificExercise = (muscle, key, value) => {
-    return possibleExercisesClone.find((ex) => {
+    return possibleExercises.find((ex) => {
       if (ex.muscle === muscle && ex[key] === value) {
         return ex;
       }
@@ -142,7 +141,7 @@ function ContextProvider(props) {
   };
 
   const initialize = () => {
-    possibleExercises.forEach(ex => possibleExercisesClone.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
+    possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
         /**
      * Start the workout creation
      */
@@ -152,9 +151,7 @@ function ContextProvider(props) {
       // let compound = findSpecificExercise(muscle, "compound", true);
       // compound && activeExercisesClone.push(compound);
       exercise.forEach((ex) => {
-        possibleExercisesClone.filter((test) => { // remove exercise
-          return test.name !== ex.name
-        })
+        removeExercise(ex)
         return activeExercisesClone.push(ex)
       });
       // make a function that removes an exercise from possibleExercises
@@ -171,17 +168,17 @@ function ContextProvider(props) {
       );
       removeExercise(addedMuscle);
       activeExercisesClone.push(addedMuscle);
-      possibleExercisesClone.filter((test) => test.name !== addedMuscle.name)
       muscleArrayPosition === muscles.length - 1
         ? (muscleArrayPosition = 0)
         : (muscleArrayPosition += 1);
-        console.log(possibleExercisesClone) // TODO: removing the exercises isn't working
     }
   }
 
   if (beginWorkout && activeExercises.length < numOfExercises) { // start workout if questions are answered & there are enough exercises
     setBeginWorkout((prev) => false);
     initialize()
+    console.log(activeExercisesClone)
+    console.log(possibleExercises)
   }
 
   // make a more generic function for updating the step

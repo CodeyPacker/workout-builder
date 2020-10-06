@@ -247,7 +247,32 @@
       "compound": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure"],
+      "equipment": {
+        "gym": true,
+        "dip-station": true
+      }
+    },
+    {
+      "name": "Tri things",
+      "muscle": "triceps",
       "combo": true,
+      "angle": "long",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"],
+      "equipment": {
+        "gym": true,
+        "dip-station": true
+      }
+    },
+    {
+      "name": "Whoa nice tris",
+      "muscle": "triceps",
+      "combo": true,
+      "angle": "long",
+      "compound": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure"],
       "equipment": {
         "gym": true,
         "dip-station": true
