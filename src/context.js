@@ -164,13 +164,10 @@ function ContextProvider(props) {
       // compound && activeExercisesClone.push(compound);
       exercise.forEach((ex) => {
         removeExercise(ex)
-        return activeExercisesClone.push(ex)
+        ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)
       })
-      // make a function that removes an exercise from possibleExercises
-      // to run every time an exercise is added so no duplicates occur
     })
 
-    // add exercises until there are enough & remove the found exercise from the source of truth
     let muscleArrayPosition = 0;
     while ( activeExercisesClone.length < numOfExercises ) {
       let addedMuscle = findSpecificExercise(
