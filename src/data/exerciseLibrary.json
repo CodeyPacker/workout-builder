@@ -217,6 +217,7 @@
       "name": "tricep extension",
       "muscle": "triceps",
       "angle": "lateral",
+      "combo": true,
       "compound": false,
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],

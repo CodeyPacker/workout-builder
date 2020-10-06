@@ -14,7 +14,7 @@ function ContextProvider(props) {
   // const [combo, setCombo] = useState(false);
 
   function toggleTheme() {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"))
+    setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
   }
 
   const shuffle = (arr) => {
@@ -28,7 +28,7 @@ function ContextProvider(props) {
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
-    if (selection === "muscle" || selection === "strength") {
+    if ( selection === "muscle" || selection === "strength" ) {
       setStep((prevStep) => "choose-muscles")
     } else {
       setStep((prevStep) => "lose-weight-equipment")
@@ -54,7 +54,7 @@ function ContextProvider(props) {
   // Initializes workout => beginWorkout = true
   // Fills selectedExercises based on muscle and equipment selection
   const handleBeginWorkout = () => {
-    if (equipment.length !== 0) {
+    if ( equipment.length !== 0 ) {
       setBeginWorkout((prev) => true)
       setStep((prevStep) => (prevStep = "workout"))
     }
@@ -64,8 +64,8 @@ function ContextProvider(props) {
 
     muscles.map((muscle) => {
       exerciseLibrary[muscle].map((exercise) => {
-        if (exercise.name) {
-          if (equipment.includes("gym")) {
+        if ( exercise.name ) {
+          if ( equipment.includes("gym") ) {
             // include all exercises
             selectedExercises.push(exercise)
           } else {
@@ -88,7 +88,7 @@ function ContextProvider(props) {
 
   const removeExercise = (exerciseObj) => {
     possibleExercises.forEach((ex, i) => {
-      if (ex.name === exerciseObj.name ) {
+      if ( ex.name === exerciseObj.name ) {
         possibleExercises.splice(i, 1)
         return
       }
@@ -102,20 +102,58 @@ function ContextProvider(props) {
     // determine if combo might be available || Tried using state
     let combo = false
 
-    if (muscles.includes("chest") && muscles.includes("triceps")) {
+    if ( muscles.includes("chest") && muscles.includes("triceps") ) {
       combo = true
     }
 
     // get exercise
-    // TODO: avoid duplicates
-    // TODO: add functionality to search for a combo
+    // TODO: make dry
     let exercise = angles.map((angle) => {
-      return possibleExercises.find((ex) => {
-        possibleExercises.filter((test) => test.name !== ex.name )
-        return ex.muscle === muscle && ex.angle === angle
-      })
-    })
 
+      // if there's a combo, 
+        // find an exercise with a combo
+          // if it can't find one
+            // search for a normal one
+      // if ( combo ) {
+      //   return possibleExercises.find((ex) => {
+      //     if (ex.combo) {
+      //       return ex.muscle === muscle && ex.angle === angle && ex.combo && ex.equipment[equipment]
+      //     } else {
+      //       return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
+      //     }
+      //   })
+      // } else {
+      //   return possibleExercises.find((ex) => {
+      //     return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
+      //   })
+      // }\
+      let selectedExercise = null
+
+      if ( combo ) {
+        // find combo
+        selectedExercise = possibleExercises.find(ex => {
+          return ex.muscle === muscle && ex.angle === angle && ex.combo && ex.equipment[equipment]
+        })
+      }
+
+      if (!selectedExercise) {
+        selectedExercise = possibleExercises.find(ex => {
+          return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
+        })
+      }
+
+      return selectedExercise
+        // if ( selectedExercise ) {
+        //   return comboExercise
+        // } else {
+        //   return possibleExercises.find((ex) => {
+        //     return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
+        //   })
+        // }
+      })
+
+    console.log(exercise)
+    // removeExercise(exercise)
     return exercise
   }
 
@@ -133,17 +171,17 @@ function ContextProvider(props) {
    */
   const findSpecificExercise = (muscle, key, value) => {
     return possibleExercises.find((ex) => {
-      if (ex.muscle === muscle && ex[key] === value) {
+      if ( ex.muscle === muscle && ex[key] === value ) {
         return ex
       }
     })
   }
 
   const initialize = () => {
-    possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
-        /**
-     * Start the workout creation
-     */
+    // possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
+    /**
+   * Start the workout creation
+   */
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
@@ -159,7 +197,7 @@ function ContextProvider(props) {
 
     // add exercises until there are enough & remove the found exercise from the source of truth
     let muscleArrayPosition = 0;
-    while (activeExercisesClone.length < numOfExercises) {
+    while ( activeExercisesClone.length < numOfExercises ) {
       let addedMuscle = findSpecificExercise(
         muscles[muscleArrayPosition],
         "muscle",
@@ -173,7 +211,7 @@ function ContextProvider(props) {
     }
   }
 
-  if (beginWorkout && activeExercises.length < numOfExercises) { // start workout if questions are answered & there are enough exercises
+  if ( beginWorkout && activeExercises.length < numOfExercises ) { // start workout if questions are answered & there are enough exercises
     setBeginWorkout((prev) => false)
     initialize()
     console.log(activeExercisesClone)
