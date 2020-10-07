@@ -4,304 +4,178 @@
       "angles": ["upper", "middle", "lower"]
     },
     {
-      "name": "Dumbbell chest press",
+      "name": "push up",
       "muscle": "chest",
       "angle": "middle",
       "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "Left pec press",
-      "muscle": "chest",
-      "angle": "middle",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "Much cool chest",
-      "muscle": "chest",
-      "angle": "middle",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
       "combo": true,
+      "strength": ["to failure", "to failure", "to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure", "to failure"],
       "equipment": {
         "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "Wow chest",
-      "muscle": "chest",
-      "angle": "lower",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "Incline Dumbell Fly",
-      "muscle": "chest",
-      "angle": "upper",
-      "compound": false,
-      "combo": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "So Chest Fly",
-      "muscle": "chest",
-      "angle": "upper",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "Dips",
-      "muscle": "chest",
-      "angle": "lower",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "dip station": true
-      }
-    },
-    {
-      "name": "Bench Press",
-      "muscle": "chest",
-      "angle": "middle",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "bench": true
-      }
-    },
-    {
-      "name": "Incline Bench Press",
-      "muscle": "chest",
-      "angle": "upper",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "bench": true
-      }
-    },
-    {
-      "name": "Decline Bench Press",
-      "muscle": "chest",
-      "angle": "lower",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "bench": true
-      }
-    }
-  ],
-  "biceps": [
-    {
-      "angles": ["long", "short"]
-    },
-    {
-      "name": "hammer curls",
-      "muscle": "biceps",
-      "angle": "long",
-      "compound": true,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "drag curls",
-      "muscle": "biceps",
-      "angle": "short",
-      "compound": false,
-      "strength": [10, 8, 6, 6],
-      "hypertrophy": [12, 12, 12, 15],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
-        "bands": true
-      }
-    },
-    {
-      "name": "preacher curls",
-      "muscle": "biceps",
-      "angle": "long",
-      "compound": false,
-      "strength": [12, 12, 12, 15],
-      "hypertrophy": [12, 12, 12, 15],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
         "barbell": true
       }
     },
     {
-      "name": "pull up",
-      "muscle": "biceps",
-      "angle": "short",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "pull-up-bar": true
-      }
-    },
-    {
-      "name": "chin up",
-      "muscle": "biceps",
-      "angle": "long",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "combo": ["back", "biceps"],
-      "equipment": {
-        "gym": true,
-        "pull-up-bar": true
-      }
-    }
-  ],
-  "triceps": [
-    {
-      "angles": ["medial", "lateral", "long"]
-    },
-    {
-      "name": "rope pull down",
+      "name": "bench press",
+      "muscle": "chest",
+      "angle": "middle",
+      "compound": true,
       "combo": true,
-      "muscle": "triceps",
-      "angle": "medial",
-      "compound": false,
-      "strength": [10, 8, 6, 6],
-      "hypertrophy": [12, 12, 12, 15],
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
       "equipment": {
         "gym": true,
-        "cables": true
-      }
-    },
-    {
-      "name": "tricep extension",
-      "muscle": "triceps",
-      "angle": "lateral",
-      "combo": true,
-      "compound": false,
-      "strength": [10, 8, 6, 6],
-      "hypertrophy": [12, 12, 12, 15],
-      "equipment": {
-        "gym": true,
-        "dumbbells": true,
         "barbell": true
       }
     },
     {
-      "name": "dips",
-      "muscle": "triceps",
-      "angle": "long",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "combo": true,
-      "equipment": {
-        "gym": true,
-        "dip-station": true
-      }
-    },
-    {
-      "name": "trips",
-      "muscle": "triceps",
-      "combo": true,
-      "angle": "long",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "dip-station": true
-      }
-    },
-    {
-      "name": "Tri things",
-      "muscle": "triceps",
-      "combo": true,
-      "angle": "long",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "dip-station": true
-      }
-    },
-    {
-      "name": "Whoa nice tris",
-      "muscle": "triceps",
-      "combo": true,
-      "angle": "long",
-      "compound": false,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "dip-station": true
-      }
-    },
-    {
-      "name": "splits",
-      "muscle": "triceps",
-      "angle": "lateral",
+      "name": "incline bench press",
+      "muscle": "chest",
+      "angle": "upper",
       "compound": true,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
+      "combo": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
       "equipment": {
         "gym": true,
-        "dip-station": true
+        "barbell": true
+      }
+    },
+    {
+      "name": "decline bench press",
+      "muscle": "chest",
+      "angle": "lower",
+      "compound": true,
+      "combo": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "barbell": true
+      }
+    },
+    {
+      "name": "dumbell chest press",
+      "muscle": "chest",
+      "angle": "middle",
+      "compound": true,
+      "combo": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "incline dumbell chest press",
+      "muscle": "chest",
+      "angle": "upper",
+      "compound": true,
+      "combo": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "decline dumbell chest press",
+      "muscle": "chest",
+      "angle": "lower",
+      "compound": true,
+      "combo": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "dumbell chest fly",
+      "muscle": "chest",
+      "angle": "middle",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "incline dumbell chest fly",
+      "muscle": "chest",
+      "angle": "upper",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "decline dumbell chest fly",
+      "muscle": "chest",
+      "angle": "lower",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "dumbbell": true,
+        "bands": true
+      }
+    },
+    {
+      "name": "cable fly",
+      "muscle": "chest",
+      "angle": "middle",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "cable": true 
+      }
+    },
+    {
+      "name": "high cable fly",
+      "muscle": "chest",
+      "angle": "lower",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "cable": true 
+      }
+    },
+    {
+      "name": "low cable fly",
+      "muscle": "chest",
+      "angle": "upper",
+      "compound": false,
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
+      "equipment": {
+        "gym": true,
+        "cable": true 
       }
     }
   ],
@@ -310,10 +184,11 @@
       "angles": ["lats", "traps"]
     },
     {
-      "name": "dead-lift",
+      "name": "deadlift",
       "muscle": "back",
-      "angle": "all",
+      "angle": "lats",
       "compound": true,
+      "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
@@ -323,13 +198,39 @@
       }
     },
     {
+      "name": "wide grip pull up",
+      "muscle": "back",
+      "angle": "lats",
+      "compound": false,
+      "combo": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
+      "equipment": {
+        "gym": true,
+        "pull-up-bar": true
+      }
+    },
+    {
+      "name": "close grip pull ups",
+      "muscle": "back",
+      "angle": "lats",
+      "compound": false,
+      "combo": false,
+      "strength": ["to failure", "to failure", "to failure"],
+      "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
+      "equipment": {
+        "gym": true,
+        "pull-up-bar": true
+      }
+    },
+    {
       "name": "chin up",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
+      "combo": true,
       "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": [15, 12, 10, 8],
-      "combo": ["back", "biceps"],
+      "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
       "equipment": {
         "gym": true,
         "pull-up-bar": true
@@ -340,138 +241,118 @@
       "muscle": "back",
       "angle": "lats",
       "compound": true,
-      "strength": ["to failure", "to failure", "to failure"],
-      "hypertrophy": ["to failure", "to failure", "to failure"],
-      "combo": ["back", "biceps"],
+      "combo": false,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [15, 12, 10, 8],
       "equipment": {
         "gym": true,
         "barbell": true,
         "dumbbell": true
       }
-    }
-  ],
-  "legs": [
-    {
-      "angles": ["glutes", "hamstrings", "quads"]
     },
     {
-      "name": "Leg extensions",
-      "muscle": "legs",
-      "angle": "quads",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8, 4],
-      "equipment": {
-        "gym": true
-      }
-    },
-    {
-      "name": "Leg curls",
-      "angle": "glutes",
-      "muscle": "legs",
-      "compound": false,
+      "name": "dumbell row",
+      "muscle": "back",
+      "angle": "lats",
+      "compound": true,
+      "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
-        "gym": true
+        "gym": true,
+        "dumbbell": true
       }
     },
     {
-      "name": "Squats",
-      "muscle": "legs",
-      "angle": "quads",
+      "name": "reverse grip row",
+      "muscle": "back",
+      "angle": "lats",
       "compound": true,
+      "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
         "gym": true,
         "barbell": true,
-        "dumbbell": true,
-        "kettlebell": true
+        "dumbbell": true
       }
-    }
-  ],
-  "shoulders": [
-    {
-      "angles": ["front", "side", "rear"]
     },
     {
-      "name": "Shoulder press",
-      "muscle": "shoulders",
-      "angle": "front",
+      "name": "cable row",
+      "muscle": "back",
+      "angle": "lats",
       "compound": true,
+      "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
       "equipment": {
         "gym": true,
-        "dumbbell": true,
-        "bands": true
+        "cable": true
+        }
+      },
+      {
+        "name": "single arm cable push downs",
+        "muscle": "back",
+        "angle": "lats",
+        "compound": false,
+        "combo": false,
+        "strength": [10, 10, 10, 10, 10],
+        "hypertrophy": [10, 10, 10, 10, 10],
+        "equipment": {
+          "gym": true,
+          "cable": true
+        }
+    },
+    {
+      "name": "cable pull down",
+      "muscle": "back",
+      "angle": "lats",
+      "compound": false,
+      "combo": false,
+      "strength": [10, 10, 10, 10, 10],
+      "hypertrophy": [10, 10, 10, 10, 10],
+      "equipment": {
+        "gym": true,
+        "cable": true
       }
     },
     {
-      "name": "Front raises",
-      "muscle": "shoulders",
-      "angle": "side",
+      "name": "reverse grip cable pull down",
+      "muscle": "back",
+      "angle": "lats",
       "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "requiredSlot": "front",
+      "combo": false,
+      "strength": [10, 10, 10, 10, 10],
+      "hypertrophy": [10, 10, 10, 10, 10],
       "equipment": {
         "gym": true,
-        "dumbbell": true,
-        "bands": true
+        "cable": true
       }
     },
     {
-      "name": "Lateral raises",
-      "muscle": "shoulders",
-      "angle": "side",
+      "name": "back extensions",
+      "muscle": "back",
+      "angle": "lats",
       "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "requiredSlot": "side",
+      "combo": false,
+      "strength": [10, 10, 10, 10, 10],
+      "hypertrophy": [10, 10, 10, 10, 10],
       "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
+        "gym": true
       }
     },
     {
-      "name": "Rear delt fly",
-      "muscle": "shoulders",
-      "angle": "rear",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "requiredSlot": "rear",
+      "name": "shrugs",
+      "muscle": "back",
+      "angle": "traps",
+      "compound": true,
+      "combo": false,
+      "strength": [10, 10, 10, 10, 10],
+      "hypertrophy": [10, 10, 10, 10, 10],
       "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
+        "gym": true
       }
     }
-  ],
-  "abs": [
-    {
-      "name": "ab press",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8]
-    },
-    {
-      "name": "Front ab raises",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "requiredSlot": "front"
-    },
-    {
-      "name": "Lateral ab raises",
-      "compound": false,
-      "strength": [5, 5, 5, 5, 5],
-      "hypertrophy": [15, 12, 10, 8],
-      "requiredSlot": "side"
-    }
+
   ]
 }
-

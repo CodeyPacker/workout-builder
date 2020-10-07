@@ -88,6 +88,7 @@ function ContextProvider(props) {
 
   const removeExercise = (exerciseObj) => {
     possibleExercises.forEach((ex, i) => {
+      console.log(ex)
       if ( ex.name === exerciseObj.name ) {
         possibleExercises.splice(i, 1)
         return
@@ -99,6 +100,7 @@ function ContextProvider(props) {
    * returns an array of 1 exercise per angle, per muscle
    */
   const findAngleExercises = (muscle, angles) => {
+    console.log(angles)
     // determine if combo might be available || Tried using state
     let combo = false
 
@@ -128,7 +130,6 @@ function ContextProvider(props) {
 
       })
 
-    console.log(exercise)
     return exercise
   }
 
@@ -162,6 +163,7 @@ function ContextProvider(props) {
       let exercise = findAngleExercises(muscle, angles)
       // let compound = findSpecificExercise(muscle, "compound", true);
       // compound && activeExercisesClone.push(compound);
+      console.log(exercise)
       exercise.forEach((ex) => {
         removeExercise(ex)
         ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)

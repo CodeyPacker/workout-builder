@@ -11,7 +11,7 @@ const ExerciseCard = ({name, workload, exerciseNum}) => {
         <span className="exercise-number">{ exerciseNum + 1 }</span>
         <h3 className='name'>{name}</h3>
       </div>
-      <ul>
+      <ul className="set-list">
         {
           workload.map((rep, i) => {
             return (
@@ -71,6 +71,10 @@ const Card = styled.section`
     .exercise-number {
       background-color: #BB86FC;
       color: #1e1e1e;
+    }
+
+    .set-list {
+      color: #fff;
     }
   }
 `
