@@ -7,17 +7,18 @@ const GenerateWorkout = () => {
   const {activeExercises, goal} = useContext(Context)
 
   return (
-    <section>
-      {activeExercises.map(ex => {
-        console.log(ex)
-        return <ExerciseCard name={ex.name} workload={ex[goal]}/>
+    <Exercises>
+      {activeExercises.map((ex, i) => {
+        return <ExerciseCard name={ex.name} workload={ex[goal]} exerciseNum={i}/>
       })}
-    </section>
+    </Exercises>
   )
 }
 
 export default GenerateWorkout
 
-const MuscleName = styled.p`
-  color: white;
+const Exercises = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `
