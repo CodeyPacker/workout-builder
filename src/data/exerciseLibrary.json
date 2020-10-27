@@ -11,10 +11,7 @@
       "combo": true,
       "strength": ["to failure", "to failure", "to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "barbell": true
-      }
+      "equipment": [ "gym", "barbell" ]
     },
     {
       "name": "bench press",
@@ -24,10 +21,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true
-      }
+      "equipment": [ "gym", "barbell" ]
     },
     {
       "name": "incline bench press",
@@ -37,10 +31,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true
-      }
+      "equipment": [ "gym", "barbell" ]
     },
     {
       "name": "decline bench press",
@@ -50,10 +41,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true
-      }
+      "equipment": [ "gym", "barbell" ]
     },
     {
       "name": "dumbell chest press",
@@ -63,11 +51,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "incline dumbell chest press",
@@ -77,11 +61,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "decline dumbell chest press",
@@ -91,11 +71,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "dumbell chest fly",
@@ -105,11 +81,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "incline dumbell chest fly",
@@ -119,11 +91,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "decline dumbell chest fly",
@@ -133,11 +101,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true,
-        "bands": true
-      }
+      "equipment": [ "gym", "dumbbell", "bands" ]
     },
     {
       "name": "cable fly",
@@ -147,10 +111,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "cable": true 
-      }
+      "equipment": [ "gym", "cable" ]
     },
     {
       "name": "high cable fly",
@@ -160,10 +121,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "cable": true 
-      }
+      "equipment": [ "gym", "cable" ]
     },
     {
       "name": "low cable fly",
@@ -173,10 +131,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "cable": true 
-      }
+      "equipment": [ "gym", "cable" ]
     }
   ],
   "back": [
@@ -191,11 +146,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "dumbbell": true
-      }
+      "equipment": [ "gym", "barbell", "dumbbell" ]
     },
     {
       "name": "wide grip pull up",
@@ -205,10 +156,7 @@
       "combo": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "pull-up-bar": true
-      }
+      "equipment": [ "gym", "pull-up-bar" ]
     },
     {
       "name": "close grip pull ups",
@@ -218,10 +166,7 @@
       "combo": false,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "pull-up-bar": true
-      }
+      "equipment": [ "gym", "pull-up-bar" ]
     },
     {
       "name": "chin up",
@@ -231,10 +176,7 @@
       "combo": true,
       "strength": ["to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure","to failure", "to failure"],
-      "equipment": {
-        "gym": true,
-        "pull-up-bar": true
-      }
+      "equipment": [ "gym", "pull-up-bar" ]
     },
     {
       "name": "bent over row",
@@ -244,11 +186,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "dumbbell": true
-      }
+      "equipment": [ "gym", "barbell", "dumbbell" ]
     },
     {
       "name": "dumbell row",
@@ -258,10 +196,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "dumbbell": true
-      }
+      "equipment": [ "gym", "dumbbell" ]
     },
     {
       "name": "reverse grip row",
@@ -271,11 +206,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "barbell": true,
-        "dumbbell": true
-      }
+      "equipment": [ "gym", "barbell", "dumbbell" ]
     },
     {
       "name": "cable row",
@@ -285,10 +216,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": {
-        "gym": true,
-        "cable": true
-        }
+      "equipment": [ "gym", "cable" ]
       },
       {
         "name": "single arm cable push downs",
@@ -298,10 +226,7 @@
         "combo": false,
         "strength": [10, 10, 10, 10, 10],
         "hypertrophy": [10, 10, 10, 10, 10],
-        "equipment": {
-          "gym": true,
-          "cable": true
-        }
+        "equipment": [ "gym", "cable" ]
     },
     {
       "name": "cable pull down",
@@ -311,10 +236,7 @@
       "combo": false,
       "strength": [10, 10, 10, 10, 10],
       "hypertrophy": [10, 10, 10, 10, 10],
-      "equipment": {
-        "gym": true,
-        "cable": true
-      }
+      "equipment": [ "gym", "cable" ]
     },
     {
       "name": "reverse grip cable pull down",
@@ -324,10 +246,7 @@
       "combo": false,
       "strength": [10, 10, 10, 10, 10],
       "hypertrophy": [10, 10, 10, 10, 10],
-      "equipment": {
-        "gym": true,
-        "cable": true
-      }
+      "equipment": [ "gym", "cable" ]
     },
     {
       "name": "back extensions",
@@ -337,9 +256,7 @@
       "combo": false,
       "strength": [10, 10, 10, 10, 10],
       "hypertrophy": [10, 10, 10, 10, 10],
-      "equipment": {
-        "gym": true
-      }
+      "equipment": [ "gym" ]
     },
     {
       "name": "shrugs",
@@ -349,10 +266,7 @@
       "combo": false,
       "strength": [10, 10, 10, 10, 10],
       "hypertrophy": [10, 10, 10, 10, 10],
-      "equipment": {
-        "gym": true
-      }
+      "equipment": [ "gym" ]
     }
-
   ]
 }

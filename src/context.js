@@ -11,12 +11,13 @@ function ContextProvider(props) {
   const [equipment, setEquipment] = useState([])
   let [possibleExercises, setPossibleExercises] = useState([])
   let [activeExercises, setActiveExercises] = useState([])
-  // const [combo, setCombo] = useState(false);
 
+  // KEEP
   function toggleTheme() {
     setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
   }
 
+  // KEEP
   const shuffle = (arr) => {
     // Fisher - Yates shuffle | Shuffle exercises
     for (let i = arr.length - 1; i > 0; i--) {
@@ -25,6 +26,7 @@ function ContextProvider(props) {
     }
   };
 
+  // KEEP
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
@@ -35,6 +37,7 @@ function ContextProvider(props) {
     }
   }
 
+  // KEEP
   function handleMuscle(selection) {
     // add the muscle names to the array
     !muscles.includes(selection)
@@ -42,8 +45,8 @@ function ContextProvider(props) {
       : setMuscles((prevMuscles) => prevMuscles.filter((e) => e !== selection))
   }
 
+  // KEEP
   const handleEquipment = (selection) => {
-    // add the muscle names to the array
     !equipment.includes(selection)
       ? setEquipment((prevEquipment) => prevEquipment.concat(selection))
       : setEquipment((prevEquipment) =>
@@ -55,7 +58,7 @@ function ContextProvider(props) {
   // Fills selectedExercises based on muscle and equipment selection
   const handleBeginWorkout = () => {
     if ( equipment.length !== 0 ) {
-      setBeginWorkout((prev) => true)
+      // setBeginWorkout((prev) => true)
       setStep((prevStep) => (prevStep = "workout"))
     }
 
@@ -64,17 +67,17 @@ function ContextProvider(props) {
 
     muscles.map((muscle) => {
       exerciseLibrary[muscle].map((exercise) => {
-        if ( exercise.name ) {
-          if ( equipment.includes("gym") ) {
-            // include all exercises
-            selectedExercises.push(exercise)
-          } else {
-            // only add if compatible with users equipment
-            equipment.map((equip) => {
-              equip in exercise.equipment && selectedExercises.push(exercise)
-            })
-          }
+        if ( equipment.includes("gym") ) {
+          // include all exercises
+          selectedExercises.push(exercise)
+        } else {
+          // only add if compatible with users equipment
+          // equipment.map((equip) => {
+          //   equip in exercise.equipment && selectedExercises.push(exercise)
+          console.log('not compatible')
+          // })
         }
+
       })
     })
 
@@ -86,9 +89,9 @@ function ContextProvider(props) {
   let activeExercisesClone = []
   let numOfExercises = muscles.length > 1 ? 8 : 6
 
+  // KEEP
   const removeExercise = (exerciseObj) => {
     possibleExercises.forEach((ex, i) => {
-      console.log(ex)
       if ( ex.name === exerciseObj.name ) {
         possibleExercises.splice(i, 1)
         return
@@ -100,8 +103,7 @@ function ContextProvider(props) {
    * returns an array of 1 exercise per angle, per muscle
    */
   const findAngleExercises = (muscle, angles) => {
-    console.log(angles)
-    // determine if combo might be available || Tried using state
+    // determine if combo might be available
     let combo = false
 
     if ( muscles.includes("chest") && muscles.includes("triceps") ) {
@@ -128,12 +130,12 @@ function ContextProvider(props) {
 
       return selectedExercise
 
-      })
+    })
 
     return exercise
   }
 
-
+  // KEEP
   /**
    * returns an array with each angle for the muscle selected
    */
@@ -142,6 +144,7 @@ function ContextProvider(props) {
     return foundAngles.angles
   }
 
+  // KEEP
   /**
    * returns an exercise object that matches the key and value passed in
    */
@@ -154,16 +157,15 @@ function ContextProvider(props) {
   }
 
   const initialize = () => {
-    // possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
+    possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
     /**
    * Start the workout creation
    */
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
-      // let compound = findSpecificExercise(muscle, "compound", true);
-      // compound && activeExercisesClone.push(compound);
-      console.log(exercise)
+      let compound = findSpecificExercise(muscle, "compound", true);
+      compound && activeExercisesClone.push(compound);
       exercise.forEach((ex) => {
         removeExercise(ex)
         ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)
@@ -185,12 +187,11 @@ function ContextProvider(props) {
     }
   }
 
+
   if ( beginWorkout && activeExercises.length < numOfExercises ) { // start workout if questions are answered & there are enough exercises
     setBeginWorkout((prev) => false)
     initialize()
     setActiveExercises(() => activeExercises.concat(activeExercisesClone))
-    console.log(activeExercisesClone)
-    console.log(possibleExercises)
   }
 
   // make a more generic function for updating the step
