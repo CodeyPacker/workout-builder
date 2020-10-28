@@ -13,10 +13,12 @@ function ContextProvider(props) {
   let [activeExercises, setActiveExercises] = useState([])
   // const [combo, setCombo] = useState(false);
 
+  // KEEP
   function toggleTheme() {
     setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
   }
 
+  // KEEP
   const shuffle = (arr) => {
     // Fisher - Yates shuffle | Shuffle exercises
     for (let i = arr.length - 1; i > 0; i--) {
@@ -25,6 +27,7 @@ function ContextProvider(props) {
     }
   };
 
+  // KEEP
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
@@ -35,6 +38,7 @@ function ContextProvider(props) {
     }
   }
 
+  // KEEP
   function handleMuscle(selection) {
     // add the muscle names to the array
     !muscles.includes(selection)
@@ -42,13 +46,12 @@ function ContextProvider(props) {
       : setMuscles((prevMuscles) => prevMuscles.filter((e) => e !== selection))
   }
 
+  // KEEP
   const handleEquipment = (selection) => {
     // add the muscle names to the array
     !equipment.includes(selection)
       ? setEquipment((prevEquipment) => prevEquipment.concat(selection))
-      : setEquipment((prevEquipment) =>
-          prevEquipment.filter((e) => e !== selection)
-        )
+      : setEquipment((prevEquipment) => prevEquipment.filter((e) => e !== selection))
   }
 
   // Initializes workout => beginWorkout = true
@@ -60,31 +63,35 @@ function ContextProvider(props) {
     }
 
     // this gets moved into state after filled
+    // GRABS ALL POSSIBLE EXERCISES BASED ON MUSCLE
     let selectedExercises = []
 
     muscles.map((muscle) => {
       exerciseLibrary[muscle].map((exercise) => {
-        if ( exercise.name ) {
+        if ( exercise.name && equipment.includes("gym")) {
           if ( equipment.includes("gym") ) {
             // include all exercises
             selectedExercises.push(exercise)
-          } else {
-            // only add if compatible with users equipment
-            equipment.map((equip) => {
-              equip in exercise.equipment && selectedExercises.push(exercise)
-            })
           }
+          // else {
+          //   // only add if compatible with users equipment
+          //   equipment.map((equip) => {
+          //     equip in exercise.equipment && selectedExercises.push(exercise)
+          //   })
+          // }
         }
       })
+      console.log(selectedExercises)
     })
 
     shuffle(selectedExercises)
 
     setPossibleExercises(() => possibleExercises.concat(selectedExercises))
   }
-
+  console.log(possibleExercises)
   let activeExercisesClone = []
-  let numOfExercises = muscles.length > 1 ? 8 : 6
+  // let numOfExercises = muscles.length > 1 ? 8 : 6
+  let numOfExercises = 6
 
   const removeExercise = (exerciseObj) => {
     possibleExercises.forEach((ex, i) => {
@@ -114,13 +121,15 @@ function ContextProvider(props) {
       if ( combo ) {
         // find combo
         selectedExercise = possibleExercises.find(ex => {
-          return ex.muscle === muscle && ex.angle === angle && ex.combo && ex.equipment[equipment]
+          // TODO: add equipment matching
+          return ex.muscle === muscle && ex.angle === angle && ex.combo
         })
       }
 
       if ( !selectedExercise ) {
         selectedExercise = possibleExercises.find(ex => {
-          return ex.muscle === muscle && ex.angle === angle && ex.equipment[equipment]
+          // TODO: add equipment matching
+          return ex.muscle === muscle && ex.angle === angle
         })
       }
 
@@ -128,7 +137,6 @@ function ContextProvider(props) {
 
       })
 
-    console.log(exercise)
     return exercise
   }
 
@@ -160,8 +168,9 @@ function ContextProvider(props) {
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
-      // let compound = findSpecificExercise(muscle, "compound", true);
-      // compound && activeExercisesClone.push(compound);
+      console.log(exercise)
+      let compound = findSpecificExercise(muscle, "compound", true);
+      compound && activeExercisesClone.push(compound);
       exercise.forEach((ex) => {
         removeExercise(ex)
         ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)
@@ -187,8 +196,6 @@ function ContextProvider(props) {
     setBeginWorkout((prev) => false)
     initialize()
     setActiveExercises(() => activeExercises.concat(activeExercisesClone))
-    console.log(activeExercisesClone)
-    console.log(possibleExercises)
   }
 
   // make a more generic function for updating the step
