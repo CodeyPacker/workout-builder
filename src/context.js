@@ -23,6 +23,12 @@ function ContextProvider(props) {
 
   const toggleTheme = () => setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
 
+    // make a more generic function for updating the step
+  const submitMuscles = () => {
+    muscles.length !== 0 &&
+      setStep((prevStep) => (prevStep = "select-muscle-equipment"))
+  }
+
   const shuffle = (arr) => {
     // Fisher - Yates shuffle | Shuffle exercises
     for (let i = arr.length - 1; i > 0; i--) {
@@ -71,11 +77,7 @@ function ContextProvider(props) {
    * returns an exercise object that matches the key and value passed in
    */
   const findSpecificExercise = (muscle, key, value) => {
-    return possibleExercises.find((ex) => {
-      if ( ex.muscle === muscle && ex[key] === value && checkCompatibleEquip(ex.equipment) ) {
-        return ex
-      }
-    })
+    return possibleExercises.find((ex) => ex.muscle === muscle && ex[key] === value && checkCompatibleEquip(ex.equipment) )
   }
 
   // Initializes workout => beginWorkout = true
@@ -90,19 +92,17 @@ function ContextProvider(props) {
     // GRABS ALL POSSIBLE EXERCISES BASED ON MUSCLE
     let selectedExercises = []
 
-    muscles.map((muscle) => {
-      exerciseLibrary[muscle].map((exercise) => {
-        exercise.name && selectedExercises.push(exercise)
-      })
-    })
+    // fill selectedExercises - checking exercise.name so the angles object doesn't get included
+    // TODO: remove the angles from possibleExercises so this check isn't needed
+    muscles.map(muscle => exerciseLibrary[muscle].map(exercise => exercise.name && selectedExercises.push(exercise)))
 
     shuffle(selectedExercises)
 
     setPossibleExercises(() => possibleExercises.concat(selectedExercises))
   }
+
   let activeExercisesClone = []
-  // let numOfExercises = muscles.length > 1 ? 8 : 6
-  let numOfExercises = 6
+  let numOfExercises = muscles.length > 1 ? 8 : 6
 
   const removeExercise = (exerciseObj) => {
     possibleExercises.forEach((ex, i) => {
@@ -147,6 +147,7 @@ function ContextProvider(props) {
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
+      // TODO: get compound exercises working
       // let compound = findSpecificExercise(muscle, "compound", true); // start out with a compound exercise
       // removeExercise(compound)
       exercise.forEach((ex) => {
@@ -179,12 +180,6 @@ function ContextProvider(props) {
     setBeginWorkout((prev) => false) // prevent from running multiple times
     initialize()
     setActiveExercises(() => activeExercises.concat(activeExercisesClone))
-  }
-
-  // make a more generic function for updating the step
-  const submitMuscles = () => {
-    muscles.length !== 0 &&
-      setStep((prevStep) => (prevStep = "select-muscle-equipment"))
   }
 
   return (
