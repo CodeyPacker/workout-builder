@@ -13,12 +13,16 @@ function ContextProvider(props) {
   let [activeExercises, setActiveExercises] = useState([])
   // const [combo, setCombo] = useState(false);
 
-  // KEEP
-  function toggleTheme() {
-    setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
-  }
+  // possibleExercises holds all of the available exercises to choose from based on
+  // selected muscles and available equipment
 
-  // KEEP
+  // activeExercises is displayed on the page
+
+  // activeExercisesClone was made to stop everything from rerendering
+
+
+  const toggleTheme = () => setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
+
   const shuffle = (arr) => {
     // Fisher - Yates shuffle | Shuffle exercises
     for (let i = arr.length - 1; i > 0; i--) {
@@ -27,7 +31,7 @@ function ContextProvider(props) {
     }
   };
 
-  // KEEP
+
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
@@ -38,7 +42,7 @@ function ContextProvider(props) {
     }
   }
 
-  // KEEP
+
   function handleMuscle(selection) {
     // add the muscle names to the array
     !muscles.includes(selection)
@@ -46,12 +50,32 @@ function ContextProvider(props) {
       : setMuscles((prevMuscles) => prevMuscles.filter((e) => e !== selection))
   }
 
-  // KEEP
   const handleEquipment = (selection) => {
     // add the muscle names to the array
     !equipment.includes(selection)
       ? setEquipment((prevEquipment) => prevEquipment.concat(selection))
       : setEquipment((prevEquipment) => prevEquipment.filter((e) => e !== selection))
+  }
+
+  const checkCompatibleEquip = (compatibleEquipment) => equipment.some(r=> compatibleEquipment.indexOf(r) >= 0)
+
+    /**
+   * returns an array with each angle for the muscle selected
+   */
+  const findAngles = (muscle) => {
+    let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles)
+    return foundAngles.angles
+  }
+
+  /**
+   * returns an exercise object that matches the key and value passed in
+   */
+  const findSpecificExercise = (muscle, key, value) => {
+    return possibleExercises.find((ex) => {
+      if ( ex.muscle === muscle && ex[key] === value && checkCompatibleEquip(ex.equipment) ) {
+        return ex
+      }
+    })
   }
 
   // Initializes workout => beginWorkout = true
@@ -68,27 +92,14 @@ function ContextProvider(props) {
 
     muscles.map((muscle) => {
       exerciseLibrary[muscle].map((exercise) => {
-        if ( exercise.name && equipment.includes("gym")) {
-          if ( equipment.includes("gym") ) {
-            // include all exercises
-            selectedExercises.push(exercise)
-          }
-          // else {
-          //   // only add if compatible with users equipment
-          //   equipment.map((equip) => {
-          //     equip in exercise.equipment && selectedExercises.push(exercise)
-          //   })
-          // }
-        }
+        exercise.name && selectedExercises.push(exercise)
       })
-      console.log(selectedExercises)
     })
 
     shuffle(selectedExercises)
 
     setPossibleExercises(() => possibleExercises.concat(selectedExercises))
   }
-  console.log(possibleExercises)
   let activeExercisesClone = []
   // let numOfExercises = muscles.length > 1 ? 8 : 6
   let numOfExercises = 6
@@ -114,66 +125,38 @@ function ContextProvider(props) {
     }
 
     // get exercise
-    // TODO: make dry
-    let exercise = angles.map((angle) => {
+    let foundExercise = angles.map((angle) => {
       let selectedExercise = null
 
       if ( combo ) {
-        // find combo
-        selectedExercise = possibleExercises.find(ex => {
-          // TODO: add equipment matching
-          return ex.muscle === muscle && ex.angle === angle && ex.combo
-        })
+        return selectedExercise = possibleExercises.find(ex => ex.muscle === muscle && ex.angle === angle && ex.combo && checkCompatibleEquip(ex.equipment))
       }
 
       if ( !selectedExercise ) {
-        selectedExercise = possibleExercises.find(ex => {
-          // TODO: add equipment matching
-          return ex.muscle === muscle && ex.angle === angle
-        })
-      }
-
-      return selectedExercise
-
-      })
-
-    return exercise
-  }
-
-
-  /**
-   * returns an array with each angle for the muscle selected
-   */
-  const findAngles = (muscle) => {
-    let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles)
-    return foundAngles.angles
-  }
-
-  /**
-   * returns an exercise object that matches the key and value passed in
-   */
-  const findSpecificExercise = (muscle, key, value) => {
-    return possibleExercises.find((ex) => {
-      if ( ex.muscle === muscle && ex[key] === value ) {
-        return ex
+        return selectedExercise = possibleExercises.find(ex => ex.muscle === muscle && ex.angle === angle && checkCompatibleEquip(ex.equipment))
       }
     })
+
+    return foundExercise
   }
 
   const initialize = () => {
-    // possibleExercises.forEach(ex => possibleExercises.push(ex))  // push each exercise into a clone (Mainly for keeping state change from rerendering app)
     /**
    * Start the workout creation
    */
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
       let angles = findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
-      console.log(exercise)
-      let compound = findSpecificExercise(muscle, "compound", true);
-      compound && activeExercisesClone.push(compound);
+      // let compound = findSpecificExercise(muscle, "compound", true); // start out with a compound exercise
+      // removeExercise(compound)
       exercise.forEach((ex) => {
+        // ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)
+        if ( ex.compound && checkCompatibleEquip(ex.equipment) ) {
+          activeExercisesClone.unshift(ex)
+        } else {
+          activeExercisesClone.push(ex)
+        }
         removeExercise(ex)
-        ex.compound === true ? activeExercisesClone.unshift(ex) : activeExercisesClone.push(ex)
       })
     })
 
@@ -193,7 +176,7 @@ function ContextProvider(props) {
   }
 
   if ( beginWorkout && activeExercises.length < numOfExercises ) { // start workout if questions are answered & there are enough exercises
-    setBeginWorkout((prev) => false)
+    setBeginWorkout((prev) => false) // prevent from running multiple times
     initialize()
     setActiveExercises(() => activeExercises.concat(activeExercisesClone))
   }

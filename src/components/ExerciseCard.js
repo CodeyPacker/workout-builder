@@ -2,14 +2,16 @@ import React, { useContext } from "react"
 import styled from '@emotion/styled'
 import {Context} from '../context'
 
-const ExerciseCard = ({name, workload, exerciseNum}) => {
+const ExerciseCard = ({name, workload, exerciseNum, angle}) => {
   const { theme } = useContext(Context)
-  console.log(workload)
   return (
     <Card className={`${theme}-theme `}>
       <div className="card-header">
         <span className="exercise-number">{ exerciseNum + 1 }</span>
-        <h3 className='name'>{name}</h3>
+        <div className="card-details">
+          <h3 className='name'>{name}</h3>
+          <p className='angle'>{angle}</p>
+        </div>
       </div>
       <ul>
         {
@@ -40,7 +42,7 @@ const Card = styled.section`
 
   .exercise-number {
     display: flex;
-    align-content: center;
+    align-items: center;
     font-size: 20px;
     color: #fff;
     background-color: #1B0C69;
@@ -50,11 +52,24 @@ const Card = styled.section`
     border-top-left-radius: 4px;
   }
 
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 5px 5px;
+  }
+
   .name {
     display: flex;
     align-self: center;
     font-size: 23px;
-    padding-left: 15px;
+    text-transform: capitalize;
+  }
+
+  .angle {
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-style: italic;
+    text-transform: capitalize;
   }
 
   &.dark-theme {

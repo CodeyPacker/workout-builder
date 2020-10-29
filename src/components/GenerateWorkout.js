@@ -9,7 +9,8 @@ const GenerateWorkout = () => {
   return (
     <Exercises>
       {activeExercises.map((ex, i) => {
-        return <ExerciseCard name={ex.name} workload={ex[goal]} exerciseNum={i}/>
+        console.log(ex)
+        return <ExerciseCard name={ex.name} workload={ex[goal]} exerciseNum={i} angle={ex.angle} />
       })}
     </Exercises>
   )

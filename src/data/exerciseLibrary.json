@@ -52,7 +52,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "incline dumbell chest press",
@@ -62,7 +62,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "decline dumbell chest press",
@@ -72,7 +72,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "dumbell chest fly",
@@ -82,7 +82,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "incline dumbell chest fly",
@@ -92,7 +92,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "decline dumbell chest fly",
@@ -102,7 +102,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell", "bands" ]
+      "equipment": [ "gym", "dumbbells", "bands" ]
     },
     {
       "name": "cable fly",
@@ -147,7 +147,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "barbell", "dumbbell" ]
+      "equipment": [ "gym", "barbell", "dumbbells" ]
     },
     {
       "name": "wide grip pull up",
@@ -187,7 +187,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "barbell", "dumbbell" ]
+      "equipment": [ "gym", "barbell", "dumbbells" ]
     },
     {
       "name": "dumbell row",
@@ -197,7 +197,7 @@
       "combo": false,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "dumbbell" ]
+      "equipment": [ "gym", "dumbbells" ]
     },
     {
       "name": "reverse grip row",
@@ -207,7 +207,7 @@
       "combo": true,
       "strength": [5, 5, 5, 5, 5],
       "hypertrophy": [15, 12, 10, 8],
-      "equipment": [ "gym", "barbell", "dumbbell" ]
+      "equipment": [ "gym", "barbell", "dumbbells" ]
     },
     {
       "name": "cable row",
