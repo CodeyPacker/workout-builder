@@ -12,7 +12,7 @@ function ContextProvider(props) {
   let [possibleExercises, setPossibleExercises] = useState([])
   let [activeExercises, setActiveExercises] = useState([])
   // const [combo, setCombo] = useState(false);
-
+  let angles = null;
   // possibleExercises holds all of the available exercises to choose from based on
   // selected muscles and available equipment
 
@@ -70,7 +70,7 @@ function ContextProvider(props) {
    */
   const findAngles = (muscle) => {
     let foundAngles = exerciseLibrary[muscle].find((ex) => ex.angles)
-    return foundAngles.angles
+    angles = foundAngles.angles
   }
 
   /**
@@ -145,7 +145,7 @@ function ContextProvider(props) {
    * Start the workout creation
    */
     muscles.forEach((muscle, i) => { // muscles = ['chest', 'triceps']
-      let angles = findAngles(muscle)
+      findAngles(muscle)
       let exercise = findAngleExercises(muscle, angles)
       // TODO: get compound exercises working
       // let compound = findSpecificExercise(muscle, "compound", true); // start out with a compound exercise
@@ -179,7 +179,23 @@ function ContextProvider(props) {
   if ( beginWorkout && activeExercises.length < numOfExercises ) { // start workout if questions are answered & there are enough exercises
     setBeginWorkout((prev) => false) // prevent from running multiple times
     initialize()
-    setActiveExercises(() => activeExercises.concat(activeExercisesClone))
+
+    // move to own function
+    let sortedByCategory = []
+    let categories = []
+
+    // fill categories
+    activeExercisesClone.map((item, i) => {
+      !categories.includes(item.category) && categories.push(item.category)
+    })
+
+    // add categories back into an array
+    categories.map(category => {
+      activeExercisesClone.forEach((item, i) => item.category === category && sortedByCategory.push(item))
+    })
+
+    console.log(categories);
+    setActiveExercises(() => activeExercises.concat(sortedByCategory))
   }
 
   return (

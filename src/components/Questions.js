@@ -20,18 +20,18 @@ const Questions = () => {
       <div className={`multiple-choice ${step !== 'choose-muscles' ? 'hide' : ''}`}>
         <h2 className='heading center-text'>What muscles?</h2>
         <form className='question-flex-container'>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
-          <label htmlFor="back">Back</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
-          <label htmlFor="biceps">Biceps</label>
+          {/* <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
+          <label htmlFor="biceps">Biceps</label> */}
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('chest')} id="chest"/>
           <label htmlFor="chest">Chest</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
+          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
+          <label htmlFor="back">Back</label>
+          {/* <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
           <label htmlFor="triceps">Triceps</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('shoulders')} id="shoulders"/>
           <label htmlFor="shoulders">Shoulders</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('legs')} id="legs"/>
-          <label htmlFor="legs">Legs</label>
+          <label htmlFor="legs">Legs</label> */}
         </form>
         <div className="begin-workout-wrapper">
           <button className="begin-workout" onClick={submitMuscles}>Choose equipment!</button>

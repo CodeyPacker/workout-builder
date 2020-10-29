@@ -6,16 +6,18 @@
     },
     {
       "name": "push up",
+      "category": "bodyweight",
       "muscle": "chest",
       "angle": "middle",
       "compound": true,
       "combo": true,
       "strength": ["to failure", "to failure", "to failure", "to failure", "to failure"],
       "hypertrophy": ["to failure", "to failure", "to failure", "to failure"],
-      "equipment": [ "gym", "barbell" ]
+      "equipment": [ "gym" ]
     },
     {
       "name": "bench press",
+      "category": "barbell press",
       "muscle": "chest",
       "angle": "middle",
       "compound": true,
@@ -26,6 +28,7 @@
     },
     {
       "name": "incline bench press",
+      "category": "barbell press",
       "muscle": "chest",
       "angle": "upper",
       "compound": true,
@@ -36,6 +39,7 @@
     },
     {
       "name": "decline bench press",
+      "category": "barbell press",
       "muscle": "chest",
       "angle": "lower",
       "compound": true,
@@ -46,6 +50,7 @@
     },
     {
       "name": "dumbell chest press",
+      "category": "dumbbell press",
       "muscle": "chest",
       "angle": "middle",
       "compound": true,
@@ -56,6 +61,7 @@
     },
     {
       "name": "incline dumbell chest press",
+      "category": "dumbbell press",
       "muscle": "chest",
       "angle": "upper",
       "compound": true,
@@ -66,6 +72,7 @@
     },
     {
       "name": "decline dumbell chest press",
+      "category": "dumbbell press",
       "muscle": "chest",
       "angle": "lower",
       "compound": true,
@@ -76,6 +83,7 @@
     },
     {
       "name": "dumbell chest fly",
+      "category": "dumbbell fly",
       "muscle": "chest",
       "angle": "middle",
       "compound": false,
@@ -86,6 +94,7 @@
     },
     {
       "name": "incline dumbell chest fly",
+      "category": "dumbbell fly",
       "muscle": "chest",
       "angle": "upper",
       "compound": false,
@@ -96,6 +105,7 @@
     },
     {
       "name": "decline dumbell chest fly",
+      "category": "dumbbell fly",
       "muscle": "chest",
       "angle": "lower",
       "compound": false,
@@ -106,6 +116,7 @@
     },
     {
       "name": "cable fly",
+      "category": "cable fly",
       "muscle": "chest",
       "angle": "middle",
       "compound": false,
@@ -116,6 +127,7 @@
     },
     {
       "name": "high cable fly",
+      "category": "cable fly",
       "muscle": "chest",
       "angle": "lower",
       "compound": false,
@@ -126,6 +138,7 @@
     },
     {
       "name": "low cable fly",
+      "category": "cable fly",
       "muscle": "chest",
       "angle": "upper",
       "compound": false,
@@ -141,6 +154,7 @@
     },
     {
       "name": "deadlift",
+      "category": "barbell lift",
       "muscle": "back",
       "angle": "lats",
       "compound": true,
@@ -151,6 +165,7 @@
     },
     {
       "name": "wide grip pull up",
+      "category": "pull up",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
@@ -161,6 +176,7 @@
     },
     {
       "name": "close grip pull ups",
+      "category": "pull up",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
@@ -171,6 +187,7 @@
     },
     {
       "name": "chin up",
+      "category": "pull up",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
@@ -181,6 +198,7 @@
     },
     {
       "name": "bent over row",
+      "category": "barbell",
       "muscle": "back",
       "angle": "lats",
       "compound": true,
@@ -191,6 +209,7 @@
     },
     {
       "name": "dumbell row",
+      "category": "dumbbell",
       "muscle": "back",
       "angle": "lats",
       "compound": true,
@@ -201,6 +220,7 @@
     },
     {
       "name": "reverse grip row",
+      "category": "barbell",
       "muscle": "back",
       "angle": "lats",
       "compound": true,
@@ -211,6 +231,7 @@
     },
     {
       "name": "cable row",
+      "category": "cable",
       "muscle": "back",
       "angle": "lats",
       "compound": true,
@@ -221,6 +242,7 @@
       },
       {
         "name": "single arm cable push downs",
+        "category": "cable",
         "muscle": "back",
         "angle": "lats",
         "compound": false,
@@ -231,6 +253,7 @@
     },
     {
       "name": "cable pull down",
+      "category": "cable",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
@@ -241,6 +264,7 @@
     },
     {
       "name": "reverse grip cable pull down",
+      "category": "cable",
       "muscle": "back",
       "angle": "lats",
       "compound": false,
@@ -261,6 +285,7 @@
     },
     {
       "name": "shrugs",
+      "category": "dumbbell",
       "muscle": "back",
       "angle": "traps",
       "compound": true,

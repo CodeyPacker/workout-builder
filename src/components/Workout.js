@@ -7,7 +7,7 @@ const Workout = () => {
 
   return (
     <WorkoutResults className={`${theme}-theme ${step !== 'workout' && 'hide'}`}>
-      <h2 className='heading'>Here's your workout!</h2>
+      {/* <h2 className='heading'>Here's your workout!</h2>
       <p>Here are the muscles you selected:</p>
       <ul>
         {muscles.map(muscle => (
@@ -19,7 +19,7 @@ const Workout = () => {
         {equipment.map(e => (
           <li>{e.toUpperCase()}</li>
         ))}
-      </ul>
+      </ul> */}
     </WorkoutResults>
   )
 }
