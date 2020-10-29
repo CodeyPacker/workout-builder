@@ -17,7 +17,7 @@ const ExerciseCard = ({name, workload, exerciseNum, angle}) => {
         {
           workload.map((rep, i) => {
             return (
-              <li>Set {i + 1}: {rep} reps</li>
+              <li className="set">Set {i + 1}: {rep} reps</li>
             )
           })
         }
@@ -34,18 +34,19 @@ const Card = styled.section`
   background-color: #fff;
   border-radius: 4px;
   z-index: 10;
+  box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.07);
 
   .card-header {
     display: flex;
-      border-bottom: 3px solid #1B0C69;
+    border-bottom: 3px solid #41D3A2;
   }
 
   .exercise-number {
     display: flex;
     align-items: center;
     font-size: 20px;
-    color: #fff;
-    background-color: #1B0C69;
+    color: #1B0C69;
+    background-color: #41D3A2;
     font-weight: bold;
     padding: 15px;
     margin-bottom: -1px;
@@ -75,7 +76,8 @@ const Card = styled.section`
   &.dark-theme {
     background-color: #1e1e1e;
 
-    .name {
+    .name,
+    .angle {
       color: #fff;
     }
 
@@ -86,6 +88,10 @@ const Card = styled.section`
     .exercise-number {
       background-color: #BB86FC;
       color: #1e1e1e;
+    }
+
+    .set {
+      color: #fff;
     }
   }
 `

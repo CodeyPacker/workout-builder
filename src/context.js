@@ -3,7 +3,7 @@ import exerciseLibrary from "./data/exerciseLibrary.json"
 const Context = React.createContext()
 
 function ContextProvider(props) {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
   const [goal, setGoal] = useState("")
   const [step, setStep] = useState("choose-goal")
   const [muscles, setMuscles] = useState([])
@@ -11,8 +11,8 @@ function ContextProvider(props) {
   const [equipment, setEquipment] = useState([])
   let [possibleExercises, setPossibleExercises] = useState([])
   let [activeExercises, setActiveExercises] = useState([])
-  // const [combo, setCombo] = useState(false);
   let angles = null;
+
   // possibleExercises holds all of the available exercises to choose from based on
   // selected muscles and available equipment
 
@@ -20,10 +20,8 @@ function ContextProvider(props) {
 
   // activeExercisesClone was made to stop everything from rerendering
 
-
   const toggleTheme = () => setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
 
-    // make a more generic function for updating the step
   const submitMuscles = () => {
     muscles.length !== 0 &&
       setStep((prevStep) => (prevStep = "select-muscle-equipment"))
