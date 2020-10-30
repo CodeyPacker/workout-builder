@@ -1,30 +1,52 @@
-import React, {useContext} from "react"
-import {Context} from '../context'
-import styled from '@emotion/styled'
-import heartLight from '../images/heart-light.svg'
-import heartDark from '../images/heart-dark.svg'
+import React, { useContext } from "react";
+import { Context } from "../context";
+import styled from "@emotion/styled";
+import heartLight from "../images/heart-light.svg";
+import heartDark from "../images/heart-dark.svg";
 
 const Questions = () => {
-  const {theme, handleGoal, step, handleMuscle, submitMuscles, handleEquipment, handleBeginWorkout} = useContext(Context)
+  const {
+    theme,
+    handleGoal,
+    step,
+    handleMuscle,
+    submitMuscles,
+    handleEquipment,
+    handleBeginWorkout,
+  } = useContext(Context);
 
   return (
     <QuestionsWrapper className={`${theme}-theme `}>
-      <div className={`whats-your-goal ${step !== 'choose-goal' && 'hide'}`}>
-        <h2 className='heading center-text'>What's your goal?</h2>
-        <div className='question-flex-container'>
-          <button onClick={() => handleGoal('hypertrophy')}>Build Muscle</button>
-          <button onClick={() => handleGoal('strength')}>Build Strength</button>
+      <div className={`whats-your-goal ${step !== "choose-goal" && "hide"}`}>
+        <h2 className="heading center-text">What's your goal?</h2>
+        <div className="question-flex-container">
+          <button onClick={() => handleGoal("hypertrophy")}>
+            Build Muscle
+          </button>
+          <button onClick={() => handleGoal("strength")}>Build Strength</button>
         </div>
       </div>
 
-      <div className={`multiple-choice ${step !== 'choose-muscles' ? 'hide' : ''}`}>
-        <h2 className='heading center-text'>What muscles?</h2>
-        <form className='question-flex-container'>
+      <div
+        className={`multiple-choice ${step !== "choose-muscles" ? "hide" : ""}`}
+      >
+        <h2 className="heading center-text">What muscles?</h2>
+        <form className="question-flex-container">
           {/* <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('biceps')} id="biceps"/>
           <label htmlFor="biceps">Biceps</label> */}
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('chest')} id="chest"/>
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleMuscle("chest")}
+            id="chest"
+          />
           <label htmlFor="chest">Chest</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('back')} id="back"/>
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleMuscle("back")}
+            id="back"
+          />
           <label htmlFor="back">Back</label>
           {/* <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
           <label htmlFor="triceps">Triceps</label>
@@ -34,42 +56,80 @@ const Questions = () => {
           <label htmlFor="legs">Legs</label> */}
         </form>
         <div className="begin-workout-wrapper">
-          <button className="begin-workout" onClick={submitMuscles}>Choose equipment!</button>
+          <button className="begin-workout" onClick={submitMuscles}>
+            Choose equipment!
+          </button>
         </div>
       </div>
 
       {/* Body building - Choose equipment */}
-      <div className={`multiple-choice ${step !== 'select-muscle-equipment' ? 'hide' : ''}`}>
-        <h2 className='heading center-text'>What equipment do you have access to?</h2>
-        <form className='question-flex-container'>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('gym')} id="gym"/>
+      <div
+        className={`multiple-choice ${
+          step !== "select-muscle-equipment" ? "hide" : ""
+        }`}
+      >
+        <h2 className="heading center-text">
+          What equipment do you have access to?
+        </h2>
+        <form className="question-flex-container">
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleEquipment("gym")}
+            id="gym"
+          />
           <label htmlFor="gym">Full gym</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('dumbbells')} id="dumbbells"/>
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleEquipment("dumbbells")}
+            id="dumbbells"
+          />
           <label htmlFor="dumbbells">Dumbbells</label>
         </form>
         <div className="begin-workout-wrapper">
-          <button className="begin-workout" onClick={handleBeginWorkout}>Begin workout!</button>
+          <button className="begin-workout" onClick={handleBeginWorkout}>
+            Begin workout!
+          </button>
         </div>
       </div>
 
       {/* Lose weight - Choose equipment */}
-      <div className={`multiple-choice ${step !== 'lose-weight-equipment' ? 'hide' : ''}`}>
-        <h2 className='heading center-text'>What equipment do you have access to?</h2>
-        <form className='question-flex-container'>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('jumprope')} id="jumprope"/>
+      <div
+        className={`multiple-choice ${
+          step !== "lose-weight-equipment" ? "hide" : ""
+        }`}
+      >
+        <h2 className="heading center-text">
+          What equipment do you have access to?
+        </h2>
+        <form className="question-flex-container">
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleEquipment("jumprope")}
+            id="jumprope"
+          />
           <label htmlFor="jumprope">Jump rope</label>
-          <input className="muscle-checkbox" type="checkbox" onChange={() => handleEquipment('body-weight')} id="body-weight"/>
+          <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleEquipment("body-weight")}
+            id="body-weight"
+          />
           <label htmlFor="body-weight">Body weight</label>
         </form>
         <div className="begin-workout-wrapper">
-          <button className="begin-workout" onClick={handleBeginWorkout}>Begin workout!</button>
+          <button className="begin-workout" onClick={handleBeginWorkout}>
+            Begin workout!
+          </button>
         </div>
       </div>
     </QuestionsWrapper>
-  )
-}
+  );
+};
 
-export default Questions
+export default Questions;
 
 const QuestionsWrapper = styled.div`
   .question-flex-container {
@@ -87,7 +147,7 @@ const QuestionsWrapper = styled.div`
   }
 
   .begin-workout {
-    border-bottom: 3px solid #1B0C69;
+    border-bottom: 3px solid #1b0c69;
     background-color: white;
   }
 
@@ -96,12 +156,12 @@ const QuestionsWrapper = styled.div`
     margin: 0;
   }
 
-  ${'' /* Initialize height at 0 to create a transition effect */}
+  ${"" /* Initialize height at 0 to create a transition effect */}
   button,
   .muscle-checkbox + label {
     padding: 20px;
-    background-color: #41D3A2;
-    color: #1B0C69;
+    background-color: #41d3a2;
+    color: #1b0c69;
     border: 0;
     font-size: 25px;
     font-weight: 700;
@@ -117,10 +177,10 @@ const QuestionsWrapper = styled.div`
     }
 
     &:after {
-      content: '';
+      content: "";
       height: 0;
       width: 0;
-      transition: width .2s, height .2s;
+      transition: width 0.2s, height 0.2s;
     }
   }
 
@@ -130,8 +190,8 @@ const QuestionsWrapper = styled.div`
     justify-content: center;
 
     &:after {
-      transition: width .2s, height .2s;
-      content: url('${heartLight}');
+      transition: width 0.2s, height 0.2s;
+      content: url("${heartLight}");
       width: 25px;
       height: 25px;
       margin-left: 5px;
@@ -139,21 +199,25 @@ const QuestionsWrapper = styled.div`
   }
 
   &.dark-theme {
-    .heading { color: #f4f4f4; }
+    .heading {
+      color: #f4f4f4;
+    }
 
     button,
     .muscle-checkbox + label {
       background-color: #1e1e1e;
       color: #f4f4f4;
-      border-bottom: 3px solid #BB86FC;
+      border-bottom: 3px solid #bb86fc;
     }
 
-  .muscle-checkbox:checked + label {
-    &:after { content: url('${heartDark}'); }
-  }
+    .muscle-checkbox:checked + label {
+      &:after {
+        content: url("${heartDark}");
+      }
+    }
 
-  .begin-workout {
-    border-bottom: 3px solid #41D3A2;
+    .begin-workout {
+      border-bottom: 3px solid #41d3a2;
+    }
   }
-}
-`
+`;
