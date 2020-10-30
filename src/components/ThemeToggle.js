@@ -1,22 +1,23 @@
-import React, {useContext} from "react"
-import {Context} from '../context'
-import darkTheme from '../images/dark-theme.svg'
-import lightTheme from '../images/light-theme.svg'
-import styled from '@emotion/styled'
+import React, { useContext } from "react";
+import { Context } from "../context";
+import darkTheme from "../images/dark-theme.svg";
+import lightTheme from "../images/light-theme.svg";
+import styled from "@emotion/styled";
 
 function ThemeToggle() {
-    const {theme, toggleTheme} = useContext(Context)
-    return (
-        <ToggleIcon
-            onClick={toggleTheme}
-            src={theme === 'light' ? darkTheme : lightTheme}
-            alt="toggle theme"
-        />
-    )
+  const { theme, toggleTheme } = useContext(Context);
+  return (
+    <ToggleIcon
+      onClick={toggleTheme}
+      src={theme === "light" ? darkTheme : lightTheme}
+      alt="toggle theme"
+    />
+  );
 }
 
-export default ThemeToggle
+export default ThemeToggle;
 
 const ToggleIcon = styled.img`
-    width: 40px;
-`
+  width: 40px;
+  margin: 10px 10px 0 0;
+`;
