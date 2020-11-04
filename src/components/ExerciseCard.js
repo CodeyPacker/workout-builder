@@ -36,15 +36,15 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
         {workload.map((rep, i) => {
           return (
             <label className="checkbox set">
-            <span className="checkbox__input">
+            <span className="checkbox-input">
               <input type="checkbox" name="checkbox" onChange={handleCheckboxChange}/>
-              <span className="checkbox__control">
+              <span className="checkbox-control">
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                   <path fill='none' stroke={theme === "dark" ? '#fff' : '#212125'} strokeWidth='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
                 </svg>
               </span>
             </span>
-            <span className="radio__label">{i + 1} - {rep} reps</span>
+            <span className="radio-label">{rep} reps</span>
           </label>
           );
         })}
@@ -56,8 +56,8 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
 export default ExerciseCard;
 const Card = styled.div`
   display: inline-block;
-  width: calc(100% - 15px);
-  margin: 0 10px 10px;
+  width: calc(100% - 20px);
+  margin: 0 10px 20px;
   background-color: #fff;
   border-radius: 4px;
   z-index: 10;
@@ -66,7 +66,6 @@ const Card = styled.div`
 
   @media only screen and (min-width: 700px) {
     width: calc(50% - 40px);
-    margin: 0 10px 20px;
   }
 
   .card-header {
@@ -99,7 +98,7 @@ const Card = styled.div`
   .name {
     display: flex;
     align-self: center;
-    font-size: 23px;
+    font-size: 30px;
     text-transform: capitalize;
     transition: font-size .2s;
     transition-delay: .5s;
@@ -110,6 +109,10 @@ const Card = styled.div`
     margin-bottom: 0;
     font-style: italic;
     text-transform: capitalize;
+  }
+
+  .radio-label {
+    font-size: 28px;
   }
 
   .checkbox {
@@ -123,7 +126,7 @@ const Card = styled.div`
     margin-bottom: 5px;
   }
 
-  .checkbox__input {
+  .checkbox-input {
     display: grid;
     grid-template-areas: "checkbox";
 
@@ -136,7 +139,7 @@ const Card = styled.div`
     }
   }
 
-  .checkbox__control {
+  .checkbox-control {
     display: inline-grid;
     width: 1em;
     height: 1em;
@@ -144,19 +147,22 @@ const Card = styled.div`
     border: 0.1em solid #212125;
   }
 
-  .checkbox__control svg {
+  .checkbox-control svg {
     transition: transform 0.1s ease-in 25ms;
     transform: scale(0);
     transform-origin: bottom left;
   }
 
-  .checkbox__input input:checked
-  + .checkbox__control svg { transform: scale(1); }
+  .checkbox-input input:checked
+  + .checkbox-control svg { transform: scale(1); }
 
-  .checkbox__input input:focus
-  + .checkbox__control {
-    box-shadow: 0 0 0 0.05em #41d3a2, 0 0 0.15em 0.1em #41d3a2;
+  .checkbox-input input:focus
+  + .checkbox-control {
+    box-shadow: 0 0 0 0.05em #bb86fc, 0 0 0.15em 0.1em #bb86fc;
   }
+
+  .checkbox-input input:checked
+  + .checkbox-control {  border: 0.1em solid #bb86fc; }
 
   .checkboxes {
     max-height: 500px;
@@ -164,6 +170,12 @@ const Card = styled.div`
   }
 
   &.isComplete {
+    @media only screen and (max-width: 700px) {
+      margin-bottom: 5px;
+    }
+
+    .name { font-size: 22px; }
+
     .checkboxes {
       max-height: 0;
       margin-top: 0;
@@ -182,7 +194,7 @@ const Card = styled.div`
     &.dark-theme {
       .exercise-number { background-color: #41d3a2; }
       .card-header { border-bottom: 3px solid #41d3a2; }
-      .name { font-size: 16px; }
+      .checkbox-control { border: 0.1em solid #fff; }
     }
 
     @media only screen and (max-width: 700px) {
@@ -213,11 +225,12 @@ const Card = styled.div`
 
     .checkbox { color: #fff; }
 
-    .checkbox__control { border: 0.1em solid #fff; }
+    .checkbox-control { border: 0.1em solid #fff; }
 
-    .checkbox__input input:focus
-    + .checkbox__control {
-      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #fff;
-    }
+    .checkbox-input input:focus
+    + .checkbox-control { box-shadow: 0 0 0 0.05em #41d3a2, 0 0 0.15em 0.1em #41d3a2; }
+
+    .checkbox-input input:checked
+  + .checkbox-control {  border: 0.1em solid #41d3a2; }
   }
 `;
