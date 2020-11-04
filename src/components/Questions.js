@@ -207,7 +207,7 @@ const QuestionsWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       min-width: calc(50% - 60px);
       display: inline-block;
-      font-size: 20px;
+      font-size: 25px;
     }
 
     &:after {
