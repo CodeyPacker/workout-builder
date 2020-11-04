@@ -230,6 +230,10 @@ const QuestionsWrapper = styled.div`
       content: url("${heartLight}");
       width: 28px;
       margin-left: 5px;
+
+      @media only screen and (max-width: 600px) {
+        width: 21px;
+      }
     }
   }
 
