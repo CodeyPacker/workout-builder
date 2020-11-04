@@ -10,15 +10,23 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
         <span className="exercise-number">{exerciseNum + 1}</span>
         <div className="card-details">
           <h3 className="name">{name}</h3>
-          <p className="angle">{angle}</p>
+          {/* <p className="angle">{angle}</p> */}
         </div>
       </div>
       <ul>
         {workload.map((rep, i) => {
           return (
-            <li className="set">
-              Set {i + 1}: {rep} reps
-            </li>
+            <label class="checkbox set">
+            <span class="checkbox__input">
+              <input type="checkbox" name="checkbox"/>
+              <span class="checkbox__control">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                  <path fill='none' stroke={theme === "dark" ? '#fff' : '#212125'} stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
+                </svg>
+              </span>
+            </span>
+            <span class="radio__label">{i + 1} - {rep} reps</span>
+          </label>
           );
         })}
       </ul>
@@ -56,6 +64,7 @@ const Card = styled.section`
   .card-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 5px 15px 5px 5px;
   }
 
@@ -73,6 +82,54 @@ const Card = styled.section`
     text-transform: capitalize;
   }
 
+  .checkbox {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    align-items: center;
+    font-size: 20px;
+    color: #212125;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  .checkbox__input {
+    display: grid;
+    grid-template-areas: "checkbox";
+
+    > * { grid-area: checkbox; }
+
+    input {
+      opacity: 0;
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  .checkbox__control {
+    display: inline-grid;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.25em;
+    border: 0.1em solid #212125;
+  }
+
+  .checkbox__control svg {
+    transition: transform 0.1s ease-in 25ms;
+    transform: scale(0);
+    transform-origin: bottom left;
+  }
+
+  .checkbox__input input:checked
+  + .checkbox__control svg {
+    transform: scale(1);
+  }
+
+  .checkbox__input input:focus
+  + .checkbox__control {
+    box-shadow: 0 0 0 0.05em #41d3a2, 0 0 0.15em 0.1em #41d3a2;
+  }
+
   &.dark-theme {
     background-color: #212125;
 
@@ -87,5 +144,14 @@ const Card = styled.section`
     }
 
     .set { color: #fff; }
+
+    .checkbox { color: #fff; }
+
+    .checkbox__control { border: 0.1em solid #fff; }
+
+    .checkbox__input input:focus
+    + .checkbox__control {
+      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #fff;
+    }
   }
 `;
