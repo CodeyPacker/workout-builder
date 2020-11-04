@@ -132,8 +132,38 @@ const Questions = () => {
 export default Questions;
 
 const QuestionsWrapper = styled.div`
+  max-width: 700px;
+  margin: 0 auto;
+
+  .heading {
+    margin: 0 auto 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    max-width: 500px;
+
+    &::before {
+      content: "";
+      height: 2px;
+      width: 100%;
+      margin-right: 20px;
+      background-color: #bb86fc;
+      ${'' /* background: linear-gradient(30deg,#d367c1 10%,#dedf40 25%,#62cb5c 50%,#00bbcb 75%,#ab79d6 90%); */}
+    }
+
+    &::after {
+      content: "";
+      margin-left: 20px;
+      height: 2px;
+      width: 100%;
+      background-color: #bb86fc;
+      ${'' /* background: linear-gradient(30deg,#d367c1 10%,#dedf40 25%,#62cb5c 50%,#00bbcb 75%,#ab79d6 90%); */}
+    }
+  }
+
   .question-flex-container {
-    max-width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -149,6 +179,8 @@ const QuestionsWrapper = styled.div`
   .begin-workout {
     border-bottom: 3px solid #1b0c69;
     background-color: white;
+    font-size: 24px;
+    margin-top: 15px;
   }
 
   .muscle-checkbox {
@@ -199,19 +231,43 @@ const QuestionsWrapper = styled.div`
   }
 
   &.dark-theme {
-    .heading { color: #f4f4f4; }
+    .heading {
+      color: #f4f4f4;
+
+        &::before { background-color: #41d3a2; }
+        &::after { background-color: #41d3a2; }
+      }
 
     button,
     .muscle-checkbox + label {
-      background-color: #1e1e1e;
+      background-color: #212125;
       color: #f4f4f4;
+      border: 3px solid #212125;
       border-bottom: 3px solid #bb86fc;
+      transition: border .2s;
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border: 3px solid #bb86fc;
+      }
     }
 
     .muscle-checkbox:checked + label {
+      background-color: transparent;
+      border: 3px solid #bb86fc;
+
       &:after { content: url("${heartDark}"); }
     }
 
-    .begin-workout { border-bottom: 3px solid #41d3a2; }
+    .begin-workout {
+      border-bottom: 3px solid #41d3a2;
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border: 3px solid #41d3a2;
+      }
+    }
   }
 `;

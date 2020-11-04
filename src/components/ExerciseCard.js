@@ -74,7 +74,7 @@ const Card = styled.section`
   }
 
   &.dark-theme {
-    background-color: #1e1e1e;
+    background-color: #27272c;
 
     .name,
     .angle { color: #fff; }
@@ -83,7 +83,7 @@ const Card = styled.section`
 
     .exercise-number {
       background-color: #bb86fc;
-      color: #1e1e1e;
+      color: #212125;
     }
 
     .set { color: #fff; }

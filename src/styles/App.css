@@ -1,10 +1,10 @@
 .app * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Dosis', sans-serif;
   box-sizing: border-box;
 }
 
 p, h1, h2, h3, h4, button {
-  color: #1e1e1e;
+  color: #212125;
 }
 
 h2 {

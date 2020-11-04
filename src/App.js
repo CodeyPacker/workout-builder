@@ -40,7 +40,7 @@ const AppWrapper = styled.div`
   }
 
   &.dark-theme {
-    background-color: #121212;
+    background-color: #27272c;
 
     header {
       border-bottom: 2px solid #f4f4f4;
