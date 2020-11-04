@@ -10,7 +10,7 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
         <span className="exercise-number">{exerciseNum + 1}</span>
         <div className="card-details">
           <h3 className="name">{name}</h3>
-          <p className="angle">{angle}</p>
+          {/* <p className="angle">{angle}</p> */}
         </div>
       </div>
       <ul>
