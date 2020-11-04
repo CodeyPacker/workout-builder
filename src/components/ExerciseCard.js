@@ -16,9 +16,17 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
       <ul>
         {workload.map((rep, i) => {
           return (
-            <li className="set">
-              Set {i + 1}: {rep} reps
-            </li>
+            <label class="checkbox set">
+            <span class="checkbox__input">
+              <input type="checkbox" name="checkbox"/>
+              <span class="checkbox__control">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                  <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
+                </svg>
+              </span>
+            </span>
+            <span class="radio__label">{i + 1} - {rep} reps</span>
+          </label>
           );
         })}
       </ul>
@@ -71,6 +79,48 @@ const Card = styled.section`
     margin-bottom: 0;
     font-style: italic;
     text-transform: capitalize;
+  }
+
+  .checkbox {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    font-size: 20px;
+    color: var(--color);
+  }
+
+  .checkbox__input {
+    display: grid;
+    grid-template-areas: "checkbox";
+
+    > * {
+      grid-area: checkbox;
+    }
+
+    input {
+      opacity: 0;
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  .checkbox__control {
+    display: inline-grid;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.25em;
+    border: 0.1em solid currentColor;
+  }
+
+  .checkbox__control svg {
+    transition: transform 0.1s ease-in 25ms;
+    transform: scale(0);
+    transform-origin: bottom left;
+  }
+
+  .checkbox__input input:checked
+  + .checkbox__control svg {
+    transform: scale(1);
   }
 
   &.dark-theme {
