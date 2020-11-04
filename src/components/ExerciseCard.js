@@ -1,9 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "@emotion/styled";
 import { Context } from "../context";
 
 const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
   const { theme } = useContext(Context);
+  const [ isComplete, setComplete ] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    const checkboxList = e.currentTarget.parentElement.parentElement.parentElement
+    const inputs = [...checkboxList.querySelectorAll('input')]
+    const isCardComplete = inputs.every((box) => box.checked )
+
+    // Adding the class like this because I
+    // couldn't get it to conditionally render the class below
+    // The component wasn't re-rendering when all boxes were checked
+    // This causes a bug, where changing the theme will open up the closed exercise cards
+    // TODO: REFACTOR ASAP
+    if (isCardComplete) {
+      setComplete((prev) => ( prev === true ))
+      checkboxList.parentElement.classList.add('isComplete');
+    }
+
+  }
+
   return (
     <Card className={`${theme}-theme `}>
       <div className="card-header">
@@ -13,19 +32,19 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
           {/* <p className="angle">{angle}</p> */}
         </div>
       </div>
-      <ul>
+      <ul className="checkboxes">
         {workload.map((rep, i) => {
           return (
-            <label class="checkbox set">
-            <span class="checkbox__input">
-              <input type="checkbox" name="checkbox"/>
-              <span class="checkbox__control">
+            <label className="checkbox set">
+            <span className="checkbox__input">
+              <input type="checkbox" name="checkbox" onChange={handleCheckboxChange}/>
+              <span className="checkbox__control">
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
-                  <path fill='none' stroke={theme === "dark" ? '#fff' : '#212125'} stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
+                  <path fill='none' stroke={theme === "dark" ? '#fff' : '#212125'} strokeWidth='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
                 </svg>
               </span>
             </span>
-            <span class="radio__label">{i + 1} - {rep} reps</span>
+            <span className="radio__label">{i + 1} - {rep} reps</span>
           </label>
           );
         })}
@@ -35,14 +54,19 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
 };
 
 export default ExerciseCard;
-const Card = styled.section`
-  max-width: 400px;
+const Card = styled.div`
+  display: inline-block;
   width: calc(100% - 15px);
-  margin: 0 10px 30px;
+  margin: 0 10px 10px;
   background-color: #fff;
   border-radius: 4px;
   z-index: 10;
   box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.07);
+
+  @media only screen and (min-width: 700px) {
+    width: calc(50% - 40px);
+    margin: 0 10px 20px;
+  }
 
   .card-header {
     display: flex;
@@ -59,6 +83,7 @@ const Card = styled.section`
     padding: 15px;
     margin-bottom: -1px;
     border-top-left-radius: 4px;
+    transition: background-color .2s, font-size .2s, padding .2s;
   }
 
   .card-details {
@@ -73,6 +98,7 @@ const Card = styled.section`
     align-self: center;
     font-size: 23px;
     text-transform: capitalize;
+    transition: font-size .2s;
   }
 
   .angle {
@@ -128,6 +154,35 @@ const Card = styled.section`
   .checkbox__input input:focus
   + .checkbox__control {
     box-shadow: 0 0 0 0.05em #41d3a2, 0 0 0.15em 0.1em #41d3a2;
+  }
+
+  &.isComplete {
+    .checkboxes {
+      display: none;
+    }
+
+    .exercise-number {
+      padding: 5px 15px;
+      font-size: 16px;
+    }
+
+    &.dark-theme {
+      .exercise-number {
+        background-color: #41d3a2;
+      }
+
+      .card-header { border-bottom: 3px solid #41d3a2; }
+
+      .name { font-size: 16px; }
+    }
+
+    @media only screen and (max-width: 700px) {
+      order: -1;
+    }
+
+    @media only screen and (min-width: 700px) {
+      float: left;
+    }
   }
 
   &.dark-theme {
