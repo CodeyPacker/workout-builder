@@ -21,7 +21,7 @@ const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
               <input type="checkbox" name="checkbox"/>
               <span class="checkbox__control">
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
-                  <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
+                  <path fill='none' stroke={theme === "dark" ? '#fff' : '#212125'} stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' />
                 </svg>
               </span>
             </span>
@@ -85,17 +85,18 @@ const Card = styled.section`
     display: grid;
     grid-template-columns: min-content auto;
     grid-gap: 0.5em;
+    align-items: center;
     font-size: 20px;
-    color: var(--color);
+    color: #212125;
+    cursor: pointer;
+    margin-bottom: 5px;
   }
 
   .checkbox__input {
     display: grid;
     grid-template-areas: "checkbox";
 
-    > * {
-      grid-area: checkbox;
-    }
+    > * { grid-area: checkbox; }
 
     input {
       opacity: 0;
@@ -109,7 +110,7 @@ const Card = styled.section`
     width: 1em;
     height: 1em;
     border-radius: 0.25em;
-    border: 0.1em solid currentColor;
+    border: 0.1em solid #212125;
   }
 
   .checkbox__control svg {
@@ -121,6 +122,11 @@ const Card = styled.section`
   .checkbox__input input:checked
   + .checkbox__control svg {
     transform: scale(1);
+  }
+
+  .checkbox__input input:focus
+  + .checkbox__control {
+    box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #fff;
   }
 
   &.dark-theme {
@@ -137,5 +143,9 @@ const Card = styled.section`
     }
 
     .set { color: #fff; }
+
+    .checkbox { color: #fff; }
+
+    .checkbox__control { border: 0.1em solid #fff; }
   }
 `;
