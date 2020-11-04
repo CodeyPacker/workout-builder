@@ -18,7 +18,7 @@ function ContextProvider(props) {
 
   // activeExercises is displayed on the page
 
-  // activeExercisesClone was made to stop everything from rerendering
+  // activeExercisesClone was made to stop everything from re-rendering
 
   const toggleTheme = () => setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
 
@@ -35,7 +35,6 @@ function ContextProvider(props) {
     }
   };
 
-
   function handleGoal(selection) {
     setGoal((prevGoal) => selection)
 
@@ -45,7 +44,6 @@ function ContextProvider(props) {
       setStep((prevStep) => "lose-weight-equipment")
     }
   }
-
 
   function handleMuscle(selection) {
     // add the muscle names to the array

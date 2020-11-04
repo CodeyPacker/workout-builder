@@ -294,5 +294,30 @@
       "hypertrophy": [10, 10, 10, 10, 10],
       "equipment": [ "gym" ]
     }
+  ],
+  "triceps": [
+    {
+      "angles": ["medial", "lateral", "long"]
+    },
+    {
+      "name": "rope pull down",
+      "combo": true,
+      "muscle": "triceps",
+      "angle": "medial",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "cables" ]
+    },
+    {
+      "name": "military pushup",
+      "combo": true,
+      "muscle": "triceps",
+      "angle": "lateral",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "bodyweight" ]
+    }
   ]
 }

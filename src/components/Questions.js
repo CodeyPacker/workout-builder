@@ -199,9 +199,7 @@ const QuestionsWrapper = styled.div`
   }
 
   &.dark-theme {
-    .heading {
-      color: #f4f4f4;
-    }
+    .heading { color: #f4f4f4; }
 
     button,
     .muscle-checkbox + label {
@@ -211,13 +209,9 @@ const QuestionsWrapper = styled.div`
     }
 
     .muscle-checkbox:checked + label {
-      &:after {
-        content: url("${heartDark}");
-      }
+      &:after { content: url("${heartDark}"); }
     }
 
-    .begin-workout {
-      border-bottom: 3px solid #41d3a2;
-    }
+    .begin-workout { border-bottom: 3px solid #41d3a2; }
   }
 `;

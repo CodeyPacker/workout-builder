@@ -77,21 +77,15 @@ const Card = styled.section`
     background-color: #1e1e1e;
 
     .name,
-    .angle {
-      color: #fff;
-    }
+    .angle { color: #fff; }
 
-    .card-header {
-      border-bottom: 3px solid #bb86fc;
-    }
+    .card-header { border-bottom: 3px solid #bb86fc; }
 
     .exercise-number {
       background-color: #bb86fc;
       color: #1e1e1e;
     }
 
-    .set {
-      color: #fff;
-    }
+    .set { color: #fff; }
   }
 `;
