@@ -25,7 +25,11 @@ const GenerateWorkout = () => {
 export default GenerateWorkout;
 
 const Exercises = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  max-width: 875px;
+  margin: auto;
+
+  @media only screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
