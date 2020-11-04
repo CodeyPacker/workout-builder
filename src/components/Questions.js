@@ -176,13 +176,6 @@ const QuestionsWrapper = styled.div`
     justify-content: center;
   }
 
-  .begin-workout {
-    border-bottom: 3px solid #1b0c69;
-    background-color: white;
-    font-size: 24px;
-    margin-top: 15px;
-  }
-
   .muscle-checkbox {
     appearance: none;
     margin: 0;
@@ -194,7 +187,7 @@ const QuestionsWrapper = styled.div`
     padding: 20px;
     background-color: #41d3a2;
     color: #1b0c69;
-    border: 0;
+    border: 3px solid #41d3a2;
     font-size: 32px;
     font-weight: 700;
     cursor: pointer;
@@ -202,6 +195,14 @@ const QuestionsWrapper = styled.div`
     margin: 0 15px 25px;
     border-radius: 4px;
     min-width: calc(50% - 60px);
+    border-bottom: 3px solid #41d3a2;
+    transition: border .2s;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border: 3px solid #1b0c69;
+    }
 
     @media only screen and (max-width: 600px) {
       min-width: calc(50% - 60px);
@@ -221,12 +222,27 @@ const QuestionsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     min-width: calc(50% - 60px);
+    background-color: transparent;
+    border: 3px solid #1b0c69;
 
     &:after {
       transition: width 0.2s, height 0.2s;
       content: url("${heartLight}");
       width: 28px;
       margin-left: 5px;
+    }
+  }
+
+  .begin-workout {
+    border: 3px solid #fff;
+    border-bottom: 3px solid #bb86fc;
+    background-color: white;
+    font-size: 24px;
+    margin-top: 15px;
+
+    &:hover {
+      background-color: white;
+      border: 3px solid #bb86fc;
     }
   }
 

@@ -74,7 +74,7 @@ const Card = styled.section`
   }
 
   &.dark-theme {
-    background-color: #27272c;
+    background-color: #212125;
 
     .name,
     .angle { color: #fff; }
