@@ -168,19 +168,20 @@ const QuestionsWrapper = styled.div`
     cursor: pointer;
     text-align: center;
     margin: 0 15px 25px;
-    min-width: 300px;
     border-radius: 4px;
+    min-width: calc(50% - 60px);
 
     @media only screen and (max-width: 600px) {
-      width: calc(50% - 30px);
+      min-width: calc(50% - 60px);
       display: inline-block;
+      font-size: 20px;
     }
 
     &:after {
       content: "";
       height: 0;
       width: 0;
-      transition: width 0.2s, height 0.2s;
+      transition: min-width 0.2s, min-height 0.2s;
     }
   }
 
@@ -188,12 +189,13 @@ const QuestionsWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: calc(50% - 60px);
 
     &:after {
       transition: width 0.2s, height 0.2s;
       content: url("${heartLight}");
-      width: 25px;
-      height: 25px;
+      min-width: 25px;
+      min-height: 25px;
       margin-left: 5px;
     }
   }
