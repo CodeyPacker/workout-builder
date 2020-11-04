@@ -163,7 +163,7 @@ const QuestionsWrapper = styled.div`
     background-color: #41d3a2;
     color: #1b0c69;
     border: 0;
-    font-size: 25px;
+    font-size: 32px;
     font-weight: 700;
     cursor: pointer;
     text-align: center;
@@ -179,9 +179,8 @@ const QuestionsWrapper = styled.div`
 
     &:after {
       content: "";
-      height: 0;
       width: 0;
-      transition: min-width 0.2s, min-height 0.2s;
+      transition: width 0.2s, min-height 0.2s;
     }
   }
 
@@ -194,8 +193,7 @@ const QuestionsWrapper = styled.div`
     &:after {
       transition: width 0.2s, height 0.2s;
       content: url("${heartLight}");
-      min-width: 25px;
-      min-height: 25px;
+      width: 28px;
       margin-left: 5px;
     }
   }
