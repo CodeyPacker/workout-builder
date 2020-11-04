@@ -64,6 +64,7 @@ const Card = styled.section`
   .card-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 5px 15px 5px 5px;
   }
 
@@ -126,7 +127,7 @@ const Card = styled.section`
 
   .checkbox__input input:focus
   + .checkbox__control {
-    box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #fff;
+    box-shadow: 0 0 0 0.05em #41d3a2, 0 0 0.15em 0.1em #41d3a2;
   }
 
   &.dark-theme {
@@ -147,5 +148,10 @@ const Card = styled.section`
     .checkbox { color: #fff; }
 
     .checkbox__control { border: 0.1em solid #fff; }
+
+    .checkbox__input input:focus
+    + .checkbox__control {
+      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #fff;
+    }
   }
 `;
