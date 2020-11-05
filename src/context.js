@@ -125,7 +125,7 @@ function ContextProvider(props) {
     }
 
     // get exercise
-    let foundExercise = angles.map((angle) => {
+    let foundExercise = angles.map(angle => {
       let selectedExercise = null
 
       if ( combo ) {
@@ -135,6 +135,8 @@ function ContextProvider(props) {
       if ( !selectedExercise ) {
         return selectedExercise = possibleExercises.find(ex => ex.muscle === muscle && ex.angle === angle && checkCompatibleEquip(ex.equipment))
       }
+
+      return null
     })
 
     return foundExercise
@@ -187,11 +189,13 @@ function ContextProvider(props) {
     // fill categories
     activeExercisesClone.map((item, i) => {
       !categories.includes(item.category) && categories.push(item.category)
+      return null
     })
 
     // add categories back into an array
     categories.map(category => {
       activeExercisesClone.forEach((item, i) => item.category === category && sortedByCategory.push(item))
+      return null
     })
 
     console.log(categories);

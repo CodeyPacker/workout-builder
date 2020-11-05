@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
-import styled from "@emotion/styled";
-import { Context } from "../context";
+import React, { useContext, useState } from "react"
+import styled from "@emotion/styled"
+import { Context } from "../context"
 
 const ExerciseCard = ({ name, workload, exerciseNum, angle }) => {
-  const { theme } = useContext(Context);
-  const [ isComplete, setComplete ] = useState(false);
+  const { theme } = useContext(Context)
+  const [ isComplete, setComplete ] = useState(false)
+  console.log(isComplete)
 
   const handleCheckboxChange = (e) => {
     const checkboxList = e.currentTarget.parentElement.parentElement.parentElement
