@@ -20,6 +20,10 @@ function ContextProvider(props) {
 
   // activeExercisesClone was made to stop everything from re-rendering
 
+  // TODO's:
+  // Add the combo and compound search back in
+  // Add "exercise swap"
+
   const toggleTheme = () => setTheme((prevTheme) => ( prevTheme === "light" ? "dark" : "light" ))
 
   const submitMuscles = () => {

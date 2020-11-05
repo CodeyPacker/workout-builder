@@ -98,7 +98,7 @@ const Card = styled.div`
   .name {
     display: flex;
     align-self: center;
-    font-size: 30px;
+    font-size: 28px;
     text-transform: capitalize;
     transition: font-size .2s;
     transition-delay: .5s;
