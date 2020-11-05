@@ -48,6 +48,13 @@ const Questions = () => {
             id="back"
           />
           <label htmlFor="back">Back</label>
+          {/* <input
+            className="muscle-checkbox"
+            type="checkbox"
+            onChange={() => handleMuscle("triceps")}
+            id="triceps"
+          />
+          <label htmlFor="triceps">Triceps</label> */}
           {/* <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('triceps')} id="triceps"/>
           <label htmlFor="triceps">Triceps</label>
           <input className="muscle-checkbox" type="checkbox" onChange={() => handleMuscle('shoulders')} id="shoulders"/>

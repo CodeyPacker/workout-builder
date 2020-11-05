@@ -301,6 +301,7 @@
     },
     {
       "name": "rope pull down",
+      "category": "cables",
       "combo": true,
       "muscle": "triceps",
       "angle": "medial",
@@ -310,7 +311,58 @@
       "equipment": [ "gym", "cables" ]
     },
     {
+      "name": "overhead tricep press",
+      "category": "dumbbells",
+      "muscle": "triceps",
+      "angle": "medial",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "cables", "dumbbells" ]
+    },
+    {
+      "name": "tricep push downs",
+      "category": "cables",
+      "muscle": "triceps",
+      "angle": "medial",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "cables" ]
+    },
+    {
+      "name": "diamond push ups",
+      "category": "bodyweight",
+      "muscle": "triceps",
+      "angle": "medial",
+      "compound": true,
+      "strength": ["To failure", "To failure", "To failure", "To failure"],
+      "hypertrophy": ["To failure", "To failure", "To failure", "To failure"],
+      "equipment": [ "gym", "cables", "bodyweight" ]
+    },
+    {
+      "name": "kickbacks",
+      "category": "dumbbells",
+      "muscle": "triceps",
+      "angle": "medial",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "cables", "dumbbells" ]
+    },
+    {
+      "name": "tricep extensions",
+      "category": "dumbbells",
+      "muscle": "triceps",
+      "angle": "long",
+      "compound": false,
+      "strength": [10, 8, 6, 6],
+      "hypertrophy": [12, 12, 12, 15],
+      "equipment": [ "gym", "cables", "dumbbells" ]
+    },
+    {
       "name": "military pushup",
+      "category": "bodyweight",
       "combo": true,
       "muscle": "triceps",
       "angle": "lateral",
@@ -318,6 +370,28 @@
       "strength": [10, 8, 6, 6],
       "hypertrophy": [12, 12, 12, 15],
       "equipment": [ "gym", "bodyweight" ]
+    },
+    {
+      "name": "close grip dips",
+      "category": "gym",
+      "combo": true,
+      "muscle": "triceps",
+      "angle": "lateral",
+      "compound": false,
+      "strength": ["To failure", "To failure", "To failure", "To failure"],
+      "hypertrophy": ["To failure", "To failure", "To failure", "To failure"],
+      "equipment": [ "gym", "dip station" ]
+    },
+    {
+      "name": "close grip barbell bench press",
+      "category": "barbell",
+      "combo": true,
+      "muscle": "triceps",
+      "angle": "lateral",
+      "compound": true,
+      "strength": [5, 5, 5, 5, 5],
+      "hypertrophy": [12, 10, 8, 8],
+      "equipment": [ "gym", "barbell" ]
     }
   ]
 }
