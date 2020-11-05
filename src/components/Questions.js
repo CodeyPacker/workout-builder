@@ -28,7 +28,7 @@ const Questions = () => {
       </div>
 
       <div
-        className={`multiple-choice ${step !== "choose-muscles" ? "hide" : ""}`}
+        className={`multiple-choice what-muscles ${step !== "choose-muscles" ? "hide" : ""}`}
       >
         <h2 className="heading center-text">What muscles?</h2>
         <form className="question-flex-container">
@@ -76,7 +76,7 @@ const Questions = () => {
         }`}
       >
         <h2 className="heading center-text">
-          What equipment do you have access to?
+          Available equipment:
         </h2>
         <form className="question-flex-container">
           <input
@@ -184,8 +184,25 @@ const QuestionsWrapper = styled.div`
   }
 
   .muscle-checkbox {
-    appearance: none;
+    opacity: 0;
+    width: 0;
     margin: 0;
+  }
+
+  .whats-your-goal {
+    button {
+      width: 70%;
+
+      @media only screen and (min-width: 700px) {
+        width: calc(50% - 60px);
+      }
+    }
+  }
+
+  .what-muscles {
+    label {
+      width: calc(50% - 60px);
+    }
   }
 
   ${"" /* Initialize height at 0 to create a transition effect */}
@@ -201,7 +218,6 @@ const QuestionsWrapper = styled.div`
     text-align: center;
     margin: 0 15px 25px;
     border-radius: 4px;
-    min-width: calc(50% - 60px);
     border-bottom: 3px solid #41d3a2;
     transition: border .2s;
 
@@ -212,7 +228,6 @@ const QuestionsWrapper = styled.div`
     }
 
     @media only screen and (max-width: 600px) {
-      min-width: calc(50% - 60px);
       display: inline-block;
       font-size: 25px;
     }
@@ -228,7 +243,6 @@ const QuestionsWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: calc(50% - 60px);
     background-color: transparent;
     border: 3px solid #1b0c69;
 

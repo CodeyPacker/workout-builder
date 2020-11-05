@@ -19,5 +19,6 @@ export default ThemeToggle;
 
 const ToggleIcon = styled.img`
   width: 40px;
+  height: 40px;
   margin: 10px 10px 0 0;
 `;

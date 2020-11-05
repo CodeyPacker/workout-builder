@@ -32,18 +32,11 @@ const AppWrapper = styled.div`
 
   header {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #d4d4d4;
-    padding-bottom: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, .22)
+    justify-content: flex-start;
+    padding: 10px 15px;
   }
 
   &.dark-theme {
     background-color: #27272c;
-
-    header {
-      border-bottom: 2px solid #f4f4f4;
-    }
   }
 `

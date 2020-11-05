@@ -90,6 +90,7 @@ const Card = styled.div`
   }
 
   .card-details {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,7 +102,7 @@ const Card = styled.div`
     align-self: center;
     font-size: 28px;
     text-transform: capitalize;
-    transition: font-size .2s;
+    transition: transform .2s;
     transition-delay: .5s;
   }
 
@@ -167,7 +168,7 @@ const Card = styled.div`
 
   .checkboxes {
     max-height: 500px;
-    transition: max-height .6s, margin-top .6s, margin-bottom .6s;
+    transition: max-height .6s;
   }
 
   &.isComplete {
@@ -175,7 +176,10 @@ const Card = styled.div`
       margin-bottom: 5px;
     }
 
-    .name { font-size: 22px; }
+    .name {
+      ${'' /* font-size: 22px;  */}
+      transform: scale(0.5);
+    }
 
     .checkboxes {
       max-height: 0;
