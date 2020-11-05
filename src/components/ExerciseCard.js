@@ -168,7 +168,7 @@ const Card = styled.div`
 
   .checkboxes {
     max-height: 500px;
-    transition: max-height .6s;
+    transition: max-height .6s, height .6s;
   }
 
   &.isComplete {
@@ -179,6 +179,7 @@ const Card = styled.div`
     .name {
       ${'' /* font-size: 22px;  */}
       transform: scale(0.5);
+      white-space: nowrap;
     }
 
     .checkboxes {
