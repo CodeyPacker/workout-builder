@@ -3,7 +3,7 @@ import {Context} from '../context'
 import styled from '@emotion/styled'
 
 const Workout = () => {
-  const {theme, step, muscles, equipment} = useContext(Context)
+  const {theme, step} = useContext(Context)
 
   return (
     <WorkoutResults className={`${theme}-theme ${step !== 'workout' && 'hide'}`}/>
